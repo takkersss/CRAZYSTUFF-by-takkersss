@@ -10,13 +10,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModSounds {
-    /*
+
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, CRST.MODID);
 
     public static final RegistryObject<SoundEvent> USED_UNUSUAL_TOTEM = registerSoundEvent("used_unusual_totem");
 
-    */
+
 
     /*
     public static final ForgeSoundType CITRINE_LAMP_SOUNDS = new ForgeSoundType(1f, 1f,
@@ -25,13 +25,13 @@ public class ModSounds {
     */
 
 
-     /*
+
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
-        return SOUND_EVENTS.register(name, () -> new SoundEvent(new ResourceLocation(CRST.MODID, name)));
+        return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(CRST.MODID, name)));
     }
 
     public static void register(IEventBus eventBus) {
         SOUND_EVENTS.register(eventBus);
     }
-    */
+
 }

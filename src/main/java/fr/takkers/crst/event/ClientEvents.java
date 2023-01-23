@@ -36,7 +36,7 @@ public class ClientEvents {
         public static void registerArmorRenderer(final EntityRenderersEvent.AddLayers event) {
             GeoArmorRenderer.registerArmorRenderer(SnowShoes.class,()-> new SnowShoesRenderer());
         }
-        
+
          */
     }
 }
