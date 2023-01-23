@@ -1,0 +1,89 @@
+{
+	"credit": "Made by Takkers",
+	"parent": "shadowwalker_sword",
+	"textures": {
+		"0": "crst:block/platinum_block",
+		"1": "minecraft:block/black_wool",
+		"2": "crst:block/dark_platinum_block",
+		"particle": "crst:block/dark_platinum_block"
+	},
+	"elements": [
+		{
+			"from": [7, 1, 7],
+			"to": [8, 9, 8],
+			"faces": {
+				"north": {"uv": [5, 1, 8, 9], "texture": "#2"},
+				"east": {"uv": [8, 1, 11, 9], "texture": "#2"},
+				"south": {"uv": [1, 1, 4, 9], "texture": "#2"},
+				"west": {"uv": [3, 1, 6, 9], "texture": "#2"},
+				"up": {"uv": [11, 9, 13, 11], "texture": "#2"},
+				"down": {"uv": [12, 4, 13, 5], "texture": "#2"}
+			}
+		},
+		{
+			"from": [7.1, 9, 7.4],
+			"to": [7.9, 30, 7.6],
+			"faces": {
+				"north": {"uv": [8, 0, 13.8, 15], "texture": "#0"},
+				"east": {"uv": [4, 1, 9.2, 15], "texture": "#0"},
+				"south": {"uv": [6, 1, 10.8, 15], "texture": "#0"},
+				"west": {"uv": [7, 6, 1.2, 15], "texture": "#0"},
+				"up": {"uv": [3, 2, 3.8, 3.2], "texture": "#0"},
+				"down": {"uv": [1, 1, 1.8, 2.2], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.5, 30, 7.4],
+			"to": [7.9, 32, 7.6],
+			"faces": {
+				"north": {"uv": [3, 3, 3.4, 5], "texture": "#0"},
+				"east": {"uv": [5, 4, 5.2, 6], "texture": "#0"},
+				"south": {"uv": [8, 3, 8.4, 5], "texture": "#0"},
+				"west": {"uv": [10, 8, 10.2, 10], "texture": "#0"},
+				"up": {"uv": [4, 9, 4.4, 9.2], "texture": "#0"},
+				"down": {"uv": [7, 7, 7.4, 7.2], "texture": "#0"}
+			}
+		},
+		{
+			"from": [6.55, 8.8, 6.55],
+			"to": [8.45, 9.5, 8.45],
+			"faces": {
+				"north": {"uv": [11, 12, 13.9, 13.7], "texture": "#1"},
+				"east": {"uv": [1, 3, 3.9, 4.7], "texture": "#1"},
+				"south": {"uv": [7, 11, 9.9, 12.7], "texture": "#1"},
+				"west": {"uv": [2, 7, 4.9, 8.7], "texture": "#1"},
+				"up": {"uv": [5, 2, 11.9, 8.9], "texture": "#1"},
+				"down": {"uv": [7, 1, 13.9, 7.9], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 90, 0],
+			"translation": [0.5, 1, 0.75]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, 0],
+			"translation": [0.5, 1, 2]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 90, 0],
+			"translation": [0, 0.25, -0.75]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, 0],
+			"translation": [0, 0.25, -0.75]
+		},
+		"ground": {
+			"translation": [0, 3, 0]
+		},
+		"gui": {
+			"rotation": [39, -29, 50],
+			"translation": [4, -4, 0],
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"fixed": {
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}

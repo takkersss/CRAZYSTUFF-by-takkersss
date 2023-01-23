@@ -1,0 +1,5 @@
+{
+  "type": "crst:ores",
+  "biomes": "#minecraft:is_overworld",
+  "feature": "crst:center_stone_placed"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "crst:center_stone"
+  },
+  "result": "crst:center_stone_stairs",
+  "count": 2
+}

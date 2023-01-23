@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DUD",
+    "###",
+    "HSH"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:quartz_block"
+    },
+    "U": {
+      "item": "minecraft:glass"
+    },
+    "D": {
+      "item": "minecraft:gold_ingot"
+    },
+    "H": {
+      "item": "minecraft:gold_block"
+    },
+    "S": {
+      "item": "crst:center_stone_slab"
+    }
+  },
+  "result": {
+    "item": "crst:artefact_extractor"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "crst:block/solar_furnace_top",
+    "front": "crst:block/solar_furnace_front",
+    "side": "crst:block/solar_furnace_side"
+  }
+}

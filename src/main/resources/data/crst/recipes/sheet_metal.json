@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "#X#",
+    " X "
+  ],
+  "key": {
+    "#": {
+      "item": "crst:center_stone"
+    },
+    "X": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "crst:sheet_metal",
+    "count": 4
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#K#",
+    " I "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glass"
+    },
+    "I": {
+      "item": "crst:center_stone_bar"
+    },
+    "K": {
+      "item": "minecraft:glowstone"
+    }
+  },
+  "result": {
+    "item": "crst:christmas_ball",
+    "count": 5
+  }
+}

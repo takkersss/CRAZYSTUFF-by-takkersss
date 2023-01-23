@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "K",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "crst:center_stone_bar"
+    },
+    "K": {
+      "item": "minecraft:redstone_block"
+    },
+    "X": {
+      "item": "minecraft:red_stained_glass"
+    }
+  },
+  "result": {
+    "item": "crst:red_wand"
+  }
+}

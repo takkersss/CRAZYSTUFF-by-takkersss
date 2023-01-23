@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "crst:block/dense_vegetation_bottom"
+    },
+    "half=upper": {
+      "model": "crst:block/dense_vegetation_top"
+    }
+  }
+}

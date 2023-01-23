@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "crst:block/economy_control_office",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "crst:block/economy_control_office",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "crst:block/economy_control_office"
+    },
+    "facing=west": {
+      "model": "crst:block/economy_control_office",
+      "y": 90
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "type": "crst:vegetal",
+  "biomes": "#forge:is_jungles",
+  "feature": "crst:dense_vegetation_placed"
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "crst:artefact_extractor",
+    "crst:center_stone",
+    "crst:center_stone_slab",
+    "crst:center_stone_stairs",
+    "crst:sheet_metal"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " D ",
+    "# #",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "crst:center_stone"
+    },
+    "D": {
+      "item": "crst:center_stone_bar"
+    }
+  },
+  "result": {
+    "item": "crst:mortar"
+  }
+}

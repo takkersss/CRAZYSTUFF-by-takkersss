@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "K",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "crst:center_stone_bar"
+    },
+    "K": {
+      "item": "crst:triangular_artefact"
+    },
+    "X": {
+      "item": "minecraft:phantom_membrane"
+    }
+  },
+  "result": {
+    "item": "crst:levitation_wand"
+  }
+}

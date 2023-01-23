@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "IKI",
+    " X "
+  ],
+  "key": {
+    "K": {
+      "item": "minecraft:string"
+    },
+    "I": {
+      "tag": "minecraft:planks"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "crst:snow_shoes"
+  }
+}

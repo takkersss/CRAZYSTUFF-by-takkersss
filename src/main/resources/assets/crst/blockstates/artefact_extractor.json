@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "crst:block/artefact_extractor",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "crst:block/artefact_extractor",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "crst:block/artefact_extractor"
+    },
+    "facing=west": {
+      "model": "crst:block/artefact_extractor",
+      "y": 90
+    }
+  }
+}

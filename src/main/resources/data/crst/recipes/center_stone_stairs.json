@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "crst:center_stone"
+    }
+  },
+  "result": {
+    "item": "crst:center_stone_stairs",
+    "count": 4
+  }
+}

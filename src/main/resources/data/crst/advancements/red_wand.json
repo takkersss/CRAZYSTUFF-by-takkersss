@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "crst:red_wand"
+    },
+    "title": "Red Wand",
+    "description": "Fall savior",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "crst:center_stone",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "crst:red_wand"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

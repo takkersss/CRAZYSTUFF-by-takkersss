@@ -1,0 +1,11 @@
+{
+  "type": "crst:artefact_extracting",
+  "ingredients": [
+    {
+      "item": "crst:shadowwalker_head"
+    }
+  ],
+  "output": {
+    "item": "crst:triangular_artefact"
+  }
+}

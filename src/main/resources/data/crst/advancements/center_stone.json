@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "crst:center_stone"
+    },
+    "title": "Center Stone",
+    "description": "A very deep stone",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "background": "crst:textures/block/center_stone.png"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "crst:center_stone"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

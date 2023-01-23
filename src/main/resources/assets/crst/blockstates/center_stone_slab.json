@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "crst:block/center_stone_slab"
+    },
+    "type=double": {
+      "model": "crst:block/center_stone"
+    },
+    "type=top": {
+      "model": "crst:block/center_stone_slab_top"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "crst:center_stone"
+    }
+  },
+  "result": {
+    "item": "crst:center_stone_slab",
+    "count": 6
+  }
+}

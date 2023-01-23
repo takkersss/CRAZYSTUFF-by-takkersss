@@ -1,0 +1,101 @@
+package fr.takkers.crst;
+
+import fr.takkers.crst.block.ModBlocks;
+import fr.takkers.crst.block.entity.ModBlockEntities;
+import fr.takkers.crst.effect.ModEffects;
+import fr.takkers.crst.entity.ModEntityTypes;
+import fr.takkers.crst.entity.client.ShadowWalkerRenderer;
+import fr.takkers.crst.enchantment.ModEnchantments;
+import fr.takkers.crst.item.ModItems;
+import fr.takkers.crst.networking.ModMessages;
+import fr.takkers.crst.painting.ModPaintings;
+import fr.takkers.crst.particle.ModParticles;
+import fr.takkers.crst.recipe.ModRecipes;
+import fr.takkers.crst.screen.ArtefactExtractorScreen;
+import fr.takkers.crst.screen.EconomyControlOfficeScreen;
+import fr.takkers.crst.screen.ModMenuTypes;
+import fr.takkers.crst.sound.ModSounds;
+import fr.takkers.crst.villager.ModVillagers;
+import fr.takkers.crst.world.biomemods.ModBiomeModifiers;
+import fr.takkers.crst.world.feature.ModPlacedFeatures;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.monster.Skeleton;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
+
+// The value here should match an entry in the META-INF/mods.toml file
+@Mod(CRST.MODID)
+public class CRST {
+    public static final String MODID = "crst";
+
+    // Directly reference a log4j logger.
+    public static final Logger LOGGER = LogManager.getLogger(MODID);
+
+    // Add a comment
+    public CRST() {
+        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(eventBus);
+        ModBlocks.register(eventBus);
+        ModParticles.register(eventBus);
+        ModEnchantments.register(eventBus);
+        ModEntityTypes.register(eventBus);
+        ModVillagers.register(eventBus);
+        ModBlockEntities.register(eventBus);
+        ModMenuTypes.register(eventBus);
+        ModRecipes.register(eventBus);
+        ModSounds.register(eventBus);
+        ModEffects.register(eventBus);
+        ModPaintings.register(eventBus);
+        ModBiomeModifiers.register(eventBus);
+        ModPlacedFeatures.register(eventBus);
+
+        eventBus.addListener(this::setup);
+        eventBus.addListener(this::clientSetup);
+
+        GeckoLib.initialize();
+
+        // Register ourselves for server and other game events we are interested in
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    private void clientSetup(final FMLClientSetupEvent event) {
+        EntityRenderers.register(ModEntityTypes.SHADOW_WALKER.get(), ShadowWalkerRenderer::new);
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ARTEFACT_EXTRACTOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.DENSE_VEGETATION.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHRISTMAS_BALL.get(), RenderType.translucent());
+
+        MenuScreens.register(ModMenuTypes.ARTEFACT_EXTRACTOR_MENU.get(), ArtefactExtractorScreen::new);
+        MenuScreens.register(ModMenuTypes.ECONOMY_CONTROL_OFFICE_MENU.get(), EconomyControlOfficeScreen::new);
+
+    }
+
+    private void setup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            SpawnPlacements.register(EntityType.WITHER_SKELETON,
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Skeleton::checkMonsterSpawnRules);
+
+
+            ModVillagers.registerPOIs();
+            ModMessages.register();
+        });
+
+        event.enqueueWork((ModMessages::register));
+    }
+
+}

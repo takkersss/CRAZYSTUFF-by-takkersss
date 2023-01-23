@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "color=0,number=1": { "model": "crst:block/cb/christmas_ball_yellow_1" },
+    "color=0,number=2": { "model": "crst:block/cb/christmas_ball_yellow_2" },
+    "color=0,number=3": { "model": "crst:block/cb/christmas_ball_yellow_3" },
+
+    "color=1,number=1": { "model": "crst:block/cb/christmas_ball_blue_1" },
+    "color=1,number=2": { "model": "crst:block/cb/christmas_ball_blue_2" },
+    "color=1,number=3": { "model": "crst:block/cb/christmas_ball_blue_3" },
+
+    "color=2,number=1": { "model": "crst:block/cb/christmas_ball_purple_1" },
+    "color=2,number=2": { "model": "crst:block/cb/christmas_ball_purple_2" },
+    "color=2,number=3": { "model": "crst:block/cb/christmas_ball_purple_3" },
+
+    "color=3,number=1": { "model": "crst:block/cb/christmas_ball_green_1" },
+    "color=3,number=2": { "model": "crst:block/cb/christmas_ball_green_2" },
+    "color=3,number=3": { "model": "crst:block/cb/christmas_ball_green_3" },
+
+    "color=4,number=1": { "model": "crst:block/cb/christmas_ball_red_1" },
+    "color=4,number=2": { "model": "crst:block/cb/christmas_ball_red_2" },
+    "color=4,number=3": { "model": "crst:block/cb/christmas_ball_red_3" }
+  }
+}
