@@ -12,7 +12,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
+import software.bernie.geckolib.renderer.GeoArmorRenderer;
 
 public class ClientEvents {
     @Mod.EventBusSubscriber(modid = CRST.MODID, value = Dist.CLIENT)
@@ -31,9 +31,12 @@ public class ClientEvents {
                     ArtefactExtractorRenderer::new);
         }
 
+        /*
         @SubscribeEvent
         public static void registerArmorRenderer(final EntityRenderersEvent.AddLayers event) {
             GeoArmorRenderer.registerArmorRenderer(SnowShoes.class,()-> new SnowShoesRenderer());
         }
+        
+         */
     }
 }

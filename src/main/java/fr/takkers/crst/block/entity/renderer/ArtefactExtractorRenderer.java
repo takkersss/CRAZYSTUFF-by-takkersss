@@ -1,7 +1,7 @@
 package fr.takkers.crst.block.entity.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import fr.takkers.crst.block.custom.ArtefactExtractor;
 import fr.takkers.crst.block.custom.EconomyControlOffice;
 import fr.takkers.crst.block.entity.custom.ArtefactExtractorBlockEntity;
@@ -33,7 +33,7 @@ public class ArtefactExtractorRenderer implements BlockEntityRenderer<ArtefactEx
         pPoseStack.pushPose();
         pPoseStack.translate(0.5f, 0.30f, 0.5f);
         pPoseStack.scale(0.5f, 0.5f, 0.5f);
-        pPoseStack.mulPose(Vector3f.XP.rotationDegrees(270));
+        pPoseStack.mulPose(Axis.XP.rotationDegrees(270));
 
         itemRenderer.renderStatic(itemStack, ItemTransforms.TransformType.GUI, getLightLevel(pBlockEntity.getLevel(),
                         pBlockEntity.getBlockPos()),

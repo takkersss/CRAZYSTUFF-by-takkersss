@@ -3,9 +3,9 @@ package fr.takkers.crst.item.client;
 import fr.takkers.crst.CRST;
 import fr.takkers.crst.item.custom.LevitationWand;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
-public class LevitationWandModel extends AnimatedGeoModel<LevitationWand> {
+public class LevitationWandModel extends GeoModel<LevitationWand> {
     @Override
     public ResourceLocation getModelResource(LevitationWand object) {
         return new ResourceLocation(CRST.MODID, "geo/levitation_wand.geo.json");

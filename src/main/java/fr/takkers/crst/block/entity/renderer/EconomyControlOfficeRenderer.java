@@ -1,7 +1,7 @@
 package fr.takkers.crst.block.entity.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import fr.takkers.crst.block.custom.EconomyControlOffice;
 import fr.takkers.crst.block.entity.custom.EconomyControlOfficeBlockEntity;
 import net.minecraft.client.Minecraft;
@@ -30,13 +30,13 @@ public class EconomyControlOfficeRenderer implements BlockEntityRenderer<Economy
         pPoseStack.pushPose();
         pPoseStack.translate(0.25f, 0.64f, 0.5f);
         pPoseStack.scale(0.25f, 0.25f, 0.25f);
-        pPoseStack.mulPose(Vector3f.XP.rotationDegrees(270));
+        pPoseStack.mulPose(Axis.XP.rotationDegrees(270));
 
         switch (pBlockEntity.getBlockState().getValue(EconomyControlOffice.FACING)) {
-            case NORTH -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(180));
-            case EAST -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(90));
-            case SOUTH -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(0));
-            case WEST -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(270));
+            case NORTH -> pPoseStack.mulPose(Axis.ZP.rotationDegrees(180));
+            case EAST -> pPoseStack.mulPose(Axis.ZP.rotationDegrees(90));
+            case SOUTH -> pPoseStack.mulPose(Axis.ZP.rotationDegrees(0));
+            case WEST -> pPoseStack.mulPose(Axis.ZP.rotationDegrees(270));
         }
 
         switch (pBlockEntity.getBlockState().getValue(EconomyControlOffice.FACING)) {

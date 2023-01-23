@@ -19,26 +19,26 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, CRST.MODID);
 
-    public static final RegistryObject<Item> RED_WAND = ITEMS.register("red_wand", ()-> new RedWand(new Item.Properties().tab(ModCreativeTab.CRST_CREATIVE_TAB).durability(128)));
-    public static final RegistryObject<Item> LEVITATION_WAND = ITEMS.register("levitation_wand", ()-> new LevitationWand(new Item.Properties().tab(ModCreativeTab.CRST_CREATIVE_TAB).durability(2033)));
-    //public static final RegistryObject<Item> LEVITATION_BALL = ITEMS.register("levitation_ball", ()-> new LevitationBallItem((new Item.Properties()).stacksTo(16).tab(ModCreativeTab.CRST_CREATIVE_TAB)));
-    public static final RegistryObject<Item> SHADOWWALKER_SWORD = ITEMS.register("shadowwalker_sword", ()-> new ShadowWalkerSword(ModMaterialTiers.SHADOW_WALKER_TIER, 6, -2.2f, new Item.Properties().tab(ModCreativeTab.CRST_CREATIVE_TAB)));
+    public static final RegistryObject<Item> RED_WAND = ITEMS.register("red_wand", ()-> new RedWand(new Item.Properties().durability(128)));
+    public static final RegistryObject<Item> LEVITATION_WAND = ITEMS.register("levitation_wand", ()-> new LevitationWand(new Item.Properties().durability(2033)));
+    //public static final RegistryObject<Item> LEVITATION_BALL = ITEMS.register("levitation_ball", ()-> new LevitationBallItem((new Item.Properties()).stacksTo(16)));
+    public static final RegistryObject<Item> SHADOWWALKER_SWORD = ITEMS.register("shadowwalker_sword", ()-> new ShadowWalkerSword(ModMaterialTiers.SHADOW_WALKER_TIER, 6, -2.2f, new Item.Properties()));
     public static final RegistryObject<Item> SHADOWWALKER_SPAWN_EGG = ITEMS.register("shadowwalker_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.SHADOW_WALKER,0x0F1012, 0xD4EB0E,
-                    new Item.Properties().tab(ModCreativeTab.CRST_CREATIVE_TAB)));
-    public static final RegistryObject<Item> TRIANGULAR_ARTEFACT = ITEMS.register("triangular_artefact", ()-> new Item(new Item.Properties().tab(ModCreativeTab.CRST_CREATIVE_TAB)));
-    public static final RegistryObject<Item> DIAMOND_TIP = ITEMS.register("diamond_tip", ()-> new Item(new Item.Properties().tab(ModCreativeTab.CRST_CREATIVE_TAB).durability(5)) {
+                    new Item.Properties()));
+    public static final RegistryObject<Item> TRIANGULAR_ARTEFACT = ITEMS.register("triangular_artefact", ()-> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> DIAMOND_TIP = ITEMS.register("diamond_tip", ()-> new Item(new Item.Properties().durability(5)) {
         @Override
         public boolean isEnchantable(ItemStack pStack) {
             return false;
         }
     });
 
-    public static final RegistryObject<Item> OIL_FLASK = ITEMS.register("oil_flask", ()-> new Item(new Item.Properties().tab(ModCreativeTab.CRST_CREATIVE_TAB).craftRemainder(Items.GLASS_BOTTLE)));
-    public static final RegistryObject<Item> MORTAR = ITEMS.register("mortar", ()-> new Mortar(new Item.Properties().tab(ModCreativeTab.CRST_CREATIVE_TAB)));
-    public static final RegistryObject<Item> CENTER_STONE_BAR = ITEMS.register("center_stone_bar", ()-> new Item(new Item.Properties().tab(ModCreativeTab.CRST_CREATIVE_TAB)));
-    public static final RegistryObject<Item> SNOW_SHOES = ITEMS.register("snow_shoes", ()-> new SnowShoes(ModArmorMaterials.FROST, EquipmentSlot.FEET, new Item.Properties().tab(ModCreativeTab.CRST_CREATIVE_TAB)));
-    public static final RegistryObject<Item> UNUSUAL_TOTEM = ITEMS.register("unusual_totem", ()-> new UnusualTotem(new Item.Properties().stacksTo(1).tab(ModCreativeTab.CRST_CREATIVE_TAB)));
+    public static final RegistryObject<Item> OIL_FLASK = ITEMS.register("oil_flask", ()-> new Item(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE)));
+    public static final RegistryObject<Item> MORTAR = ITEMS.register("mortar", ()-> new Mortar(new Item.Properties()));
+    public static final RegistryObject<Item> CENTER_STONE_BAR = ITEMS.register("center_stone_bar", ()-> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SNOW_SHOES = ITEMS.register("snow_shoes", ()-> new SnowShoes(ModArmorMaterials.FROST, EquipmentSlot.FEET, new Item.Properties()));
+    public static final RegistryObject<Item> UNUSUAL_TOTEM = ITEMS.register("unusual_totem", ()-> new UnusualTotem(new Item.Properties().stacksTo(1)));
 
 
     public static void register(IEventBus eventBus) {

@@ -15,6 +15,7 @@ import fr.takkers.crst.screen.ArtefactExtractorScreen;
 import fr.takkers.crst.screen.EconomyControlOfficeScreen;
 import fr.takkers.crst.screen.ModMenuTypes;
 import fr.takkers.crst.sound.ModSounds;
+import fr.takkers.crst.util.ModCreativeTab;
 import fr.takkers.crst.villager.ModVillagers;
 import fr.takkers.crst.world.biomemods.ModBiomeModifiers;
 import fr.takkers.crst.world.feature.ModPlacedFeatures;
@@ -27,6 +28,7 @@ import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -34,7 +36,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import software.bernie.geckolib3.GeckoLib;
+import software.bernie.geckolib.GeckoLib;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(CRST.MODID)
@@ -57,16 +59,17 @@ public class CRST {
         ModBlockEntities.register(eventBus);
         ModMenuTypes.register(eventBus);
         ModRecipes.register(eventBus);
-        ModSounds.register(eventBus);
+        //ModSounds.register(eventBus);
         ModEffects.register(eventBus);
         ModPaintings.register(eventBus);
         ModBiomeModifiers.register(eventBus);
-        ModPlacedFeatures.register(eventBus);
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
+        eventBus.addListener(this::addCreative);
 
         GeckoLib.initialize();
+
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -96,6 +99,41 @@ public class CRST {
         });
 
         event.enqueueWork((ModMessages::register));
+    }
+
+    private void addCreative(CreativeModeTabEvent.BuildContents event) {
+        if(event.getTab() == ModCreativeTab.CRST_TAB) {
+
+            event.accept(ModItems.CENTER_STONE_BAR);
+            event.accept(ModItems.DIAMOND_TIP);
+            event.accept(ModItems.LEVITATION_WAND);
+            event.accept(ModItems.MORTAR);
+            event.accept(ModItems.OIL_FLASK);
+            event.accept(ModItems.RED_WAND);
+            event.accept(ModItems.SHADOWWALKER_SPAWN_EGG);
+            event.accept(ModItems.SHADOWWALKER_SWORD);
+            event.accept(ModItems.SNOW_SHOES);
+            event.accept(ModItems.TRIANGULAR_ARTEFACT);
+            event.accept(ModItems.UNUSUAL_TOTEM);
+
+            event.accept(ModBlocks.ARTEFACT_EXTRACTOR);
+            event.accept(ModBlocks.CENTER_STONE);
+            event.accept(ModBlocks.CENTER_STONE_SLAB);
+            event.accept(ModBlocks.SHADOWWALKER_HEAD);
+            event.accept(ModBlocks.CHRISTMAS_BALL);
+            event.accept(ModBlocks.DENSE_VEGETATION);
+            event.accept(ModBlocks.CENTER_STONE_STAIRS);
+            event.accept(ModBlocks.ECONOMY_CONTROL_OFFICE);
+            event.accept(ModBlocks.SHEET_METAL);
+        }
+
+        /*
+        if(event.getTab() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.ZIRCON);
+        }
+
+         */
+
     }
 
 }

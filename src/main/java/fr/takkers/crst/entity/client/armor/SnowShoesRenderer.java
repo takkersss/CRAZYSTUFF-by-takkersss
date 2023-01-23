@@ -1,19 +1,16 @@
 package fr.takkers.crst.entity.client.armor;
 
+import fr.takkers.crst.CRST;
 import fr.takkers.crst.item.custom.SnowShoes;
-import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
+import net.minecraft.resources.ResourceLocation;
+import software.bernie.geckolib.model.DefaultedItemGeoModel;
+import software.bernie.geckolib.renderer.GeoArmorRenderer;
+import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
-public class SnowShoesRenderer extends GeoArmorRenderer<SnowShoes> {
+public final class SnowShoesRenderer extends GeoArmorRenderer<SnowShoes> {
     public SnowShoesRenderer() {
-        super(new SnowShoesModel());
+        super(new DefaultedItemGeoModel<>(new ResourceLocation(CRST.MODID, "armor/snow_shoes")));
 
-        this.headBone = "armorHead";
-        this.bodyBone = "armorBody";
-        this.rightArmBone = "armorRightArm";
-        this.leftArmBone = "armorLeftArm";
-        this.rightLegBone = "armorLeftLeg";
-        this.leftLegBone = "armorRightLeg";
-        this.rightBootBone = "armorLeftBoot";
-        this.leftBootBone = "armorRightBoot";
+        addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 }

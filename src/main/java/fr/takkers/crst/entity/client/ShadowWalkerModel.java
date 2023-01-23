@@ -3,9 +3,9 @@ package fr.takkers.crst.entity.client;
 import fr.takkers.crst.CRST;
 import fr.takkers.crst.entity.custom.ShadowWalkerEntity;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
-public class ShadowWalkerModel extends AnimatedGeoModel<ShadowWalkerEntity> {
+public class ShadowWalkerModel extends GeoModel<ShadowWalkerEntity> {
     @Override
     public ResourceLocation getModelResource(ShadowWalkerEntity object) {
         return new ResourceLocation(CRST.MODID, "geo/shadowwalker.geo.json");

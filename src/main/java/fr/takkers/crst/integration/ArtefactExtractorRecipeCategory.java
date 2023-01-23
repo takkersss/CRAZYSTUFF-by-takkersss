@@ -5,14 +5,6 @@ import fr.takkers.crst.CRST;
 import fr.takkers.crst.block.ModBlocks;
 import fr.takkers.crst.item.ModItems;
 import fr.takkers.crst.recipe.ArtefactExtractorRecipe;
-import mezz.jei.api.constants.VanillaTypes;
-import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
-import mezz.jei.api.gui.drawable.IDrawable;
-import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.recipe.IFocusGroup;
-import mezz.jei.api.recipe.RecipeIngredientRole;
-import mezz.jei.api.recipe.RecipeType;
-import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -21,7 +13,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import javax.annotation.Nonnull;
 
-public class ArtefactExtractorRecipeCategory implements IRecipeCategory<ArtefactExtractorRecipe> {
+public class ArtefactExtractorRecipeCategory { /* implements IRecipeCategory<ArtefactExtractorRecipe> {
+
     public final static ResourceLocation UID = new ResourceLocation(CRST.MODID, "artefact_extractor");
     public final static ResourceLocation TEXTURE = new ResourceLocation(CRST.MODID, "textures/gui/artefact_extractor_gui.png");
 
@@ -61,4 +54,6 @@ public class ArtefactExtractorRecipeCategory implements IRecipeCategory<Artefact
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 60).addItemStack(recipe.getResultItem());
     }
+
+     */
 }

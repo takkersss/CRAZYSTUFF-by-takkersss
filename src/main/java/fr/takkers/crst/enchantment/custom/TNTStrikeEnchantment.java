@@ -3,6 +3,7 @@ package fr.takkers.crst.enchantment.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.level.Level;
@@ -35,7 +36,7 @@ public class TNTStrikeEnchantment extends Enchantment {
                     }
                 }
                 if(checkUpValue == 5) {
-                    EntityType.TNT.spawn(world, null, null, upPosition,
+                    EntityType.TNT.spawn(world, (ItemStack) null, null, upPosition,
                             MobSpawnType.TRIGGERED, true, true);
                     System.out.println("\u001B[36m"+ checkUpValue + " Spawn Reussi" + "\u001B[0m");
                 }

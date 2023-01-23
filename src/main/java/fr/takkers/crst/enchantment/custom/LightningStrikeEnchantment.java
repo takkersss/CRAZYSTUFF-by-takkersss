@@ -3,6 +3,7 @@ package fr.takkers.crst.enchantment.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -19,7 +20,7 @@ public class LightningStrikeEnchantment extends Enchantment {
             BlockPos position = pTarget.blockPosition();
 
             if(pLevel == 1) {
-                EntityType.LIGHTNING_BOLT.spawn(world, null, null, position,
+                EntityType.LIGHTNING_BOLT.spawn(world, (ItemStack) null, null, position,
                         MobSpawnType.TRIGGERED, true, true);
             }
 
