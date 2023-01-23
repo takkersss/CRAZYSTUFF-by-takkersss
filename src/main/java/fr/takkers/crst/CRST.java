@@ -59,7 +59,7 @@ public class CRST {
         ModBlockEntities.register(eventBus);
         ModMenuTypes.register(eventBus);
         ModRecipes.register(eventBus);
-        //ModSounds.register(eventBus);
+        ModSounds.register(eventBus);
         ModEffects.register(eventBus);
         ModPaintings.register(eventBus);
         ModBiomeModifiers.register(eventBus);

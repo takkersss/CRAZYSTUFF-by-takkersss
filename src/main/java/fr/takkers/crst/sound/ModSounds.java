@@ -16,15 +16,11 @@ public class ModSounds {
 
     public static final RegistryObject<SoundEvent> USED_UNUSUAL_TOTEM = registerSoundEvent("used_unusual_totem");
 
-
-
     /*
     public static final ForgeSoundType CITRINE_LAMP_SOUNDS = new ForgeSoundType(1f, 1f,
             ModSounds.CITRINE_LAMP_BREAK, ModSounds.CITRINE_LAMP_STEP, ModSounds.CITRINE_LAMP_PLACE,
             ModSounds.CITRINE_LAMP_HIT, ModSounds.CITRINE_LAMP_FALL);
     */
-
-
 
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(CRST.MODID, name)));
