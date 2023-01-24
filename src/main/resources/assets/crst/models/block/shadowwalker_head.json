@@ -2,8 +2,8 @@
 	"credit": "Made by Takkers",
 	"parent": "minecraft:block/orientable",
 	"textures": {
-		"0": "crst:entity/shadow_walker",
-		"particle": "crst:entity/shadow_walker"
+		"0": "crst:block/shadow_walker",
+		"particle": "crst:block/shadow_walker"
 	},
 	"elements": [
 		{
