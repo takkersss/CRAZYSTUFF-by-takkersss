@@ -15,13 +15,20 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Shulker;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ShulkerBullet;
 import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -75,14 +82,28 @@ public class ModEvents {
     @SubscribeEvent
     public static void onRightClickedLevitationWand(PlayerInteractEvent.RightClickItem event) {
         Player player = event.getEntity();
+        Level level = event.getLevel();
 
         if(!event.getLevel().isClientSide()){
-                if(player.getMainHandItem().getItem() == ModItems.LEVITATION_WAND.get() && player.isCrouching()) {
+                if(player.getMainHandItem().getItem() == ModItems.LEVITATION_WAND.get() && !player.isCrouching()) {
 
                     player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 10, true, false));
 
-                }else if(player.getMainHandItem().getItem() == ModItems.LEVITATION_WAND.get() && !player.isCrouching()){
-
+                }else if(player.getMainHandItem().getItem() == ModItems.LEVITATION_WAND.get() && player.isCrouching()){
+                    List<Monster> monsters = level.getEntitiesOfClass(Monster.class, (new AABB(player.blockPosition())).inflate(8.0D, 6.0D, 8.0D));
+                    /*
+                    for(int i=0; i < monsters.size(); i++){
+                        level.addFreshEntity(new ShulkerBullet(level, player, monsters.get(i), player.getDirection().getAxis()));
+                    }
+                    */
+                    Monster nearestMonster = level.getNearestEntity(monsters, TargetingConditions.DEFAULT, player, 10, 10, 10);
+                    if(nearestMonster != null){
+                        level.addFreshEntity(new ShulkerBullet(level, player, nearestMonster, player.getDirection().getAxis()));
+                        if (!player.isCreative()) {
+                            player.getMainHandItem().hurtAndBreak(1, player, (p_150845_) -> {
+                                p_150845_.broadcastBreakEvent(event.getHand());
+                            });}
+                    }
                 }
 
         }
