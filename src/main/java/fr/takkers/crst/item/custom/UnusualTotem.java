@@ -19,7 +19,7 @@ public class UnusualTotem extends Item {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> tooltip, TooltipFlag pIsAdvanced) {
-        tooltip.add(Component.literal("We can see an inscription :").withStyle(ChatFormatting.GRAY));
+        tooltip.add(Component.translatable("tooltip.crst.unusual_totem").withStyle(ChatFormatting.GRAY));
         tooltip.add(Component.literal("We*v*ng sp*der* *om* no* he*e.").withStyle(ChatFormatting.GOLD));
 
         super.appendHoverText(pStack, pLevel, tooltip, pIsAdvanced);

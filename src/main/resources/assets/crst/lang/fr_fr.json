@@ -1,7 +1,7 @@
 {
   "item.crst.red_wand": "Baguette Rouge",
   "item.crst.levitation_ball": "Balle De Lévitation",
-  "item.crst.levitation_wand": "Baguette De Léviation",
+  "item.crst.levitation_wand": "Baguette De Lévitation",
   "block.crst.solar_furnace": "Fourneau Solaire",
   "itemGroup.crst_creative_tab": "Crazy Stuff [CRST]",
   "item.crst.shadowwalker_sword": "Epée Des Marcheurs De l'Ombre",
@@ -12,10 +12,9 @@
   "block.crst.shadowwalker_head": "Tête De Marcheur De l'Ombre",
   "block.crst.economy_control_office": "Bureau De Contrôle De l'Economie",
   "entity.minecraft.villager.crst.economy_governor": "Gouverneur De l'Economie",
-  "tooltip.crst.shifted_economy_control_office": "Appuie Sur §eSHIFT§r",
-  "tooltip.crst.economy_control_office": "§bLe Bureau du Gouverneur de l'Economie (Villager)",
-  "tooltip.crst.shadowwalker_sword": "Appuie Sur §eSHIFT§r",
-  "tooltip.crst.shifted_shadowwalker_sword": "§bObtenable Par Le Gouveneur De l'Economie",
+  "tooltip.crst.economy_control_office": "§bBureau du Gouverneur de l'Economie (Villager)",
+  "tooltip.crst.shift": "§eSNEAK for + infos§r",
+  "tooltip.crst.shadowwalker_sword": "§bObtenable Par Le Gouveneur De l'Economie",
   "item.crst.triangular_artefact":"Artefact Triangulaire",
   "block.crst.artefact_extractor": "Extracteur d'Artefact",
   "item.crst.diamond_tip": "Pointe En Diamant",
@@ -32,5 +31,9 @@
   "item.crst.unusual_totem": "Totem Etrange",
   "sounds.crst.used_unusual_totem": "Son d'Utilisation Du Totem",
   "effect.crst.crouch_teleportation_effect": "Teleportation Accroupi",
-  "block.crst.christmas_ball": "Boule De Noel"
+  "block.crst.christmas_ball": "Boule De Noel",
+  "tooltip.crst.unusual_totem": "On peut voir une inscription :",
+  "tooltip.crst.levitation_wand_shoot": "Accroupi + Clic Droit pour tirer sur des monstres !",
+  "tooltip.crst.levitation_wand_fly": "Clic Droit pour léviter !",
+  "tooltip.crst.shadowwalker_head": "§bObtenable avec la méthode vanilla"
 }

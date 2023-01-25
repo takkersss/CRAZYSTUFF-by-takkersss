@@ -34,10 +34,10 @@ public class ModBlocks {
  */
 
     public static final RegistryObject<Block> SHADOWWALKER_HEAD = registerBlock("shadowwalker_head",
-            () -> new ShadowWalkerHead(BlockBehaviour.Properties.of(Material.DECORATION).strength(1f)));
+            () -> new ShadowWalkerHead(BlockBehaviour.Properties.of(Material.DECORATION).strength(1f)), "tooltip.crst.shadowwalker_head");
 
     public static final RegistryObject<Block> ECONOMY_CONTROL_OFFICE = registerBlock("economy_control_office",
-            () -> new EconomyControlOffice(BlockBehaviour.Properties.of(Material.WOOD).strength(3.5f).sound(SoundType.WOOD)), "tooltip.crst.economy_control_office", "tooltip.crst.shifted_economy_control_office");
+            () -> new EconomyControlOffice(BlockBehaviour.Properties.of(Material.WOOD).strength(3.5f).sound(SoundType.WOOD)), "tooltip.crst.economy_control_office");
 
     public static final RegistryObject<Block> ARTEFACT_EXTRACTOR = registerBlock("artefact_extractor",
             () -> new ArtefactExtractor(BlockBehaviour.Properties.of(Material.METAL).strength(3.5f).sound(SoundType.METAL)));
@@ -58,20 +58,20 @@ public class ModBlocks {
     ));
 
     //register tooltip
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, String tooltipKey, String shiftedTooltipKey) {
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, String tooltipKey) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn, tooltipKey, shiftedTooltipKey);
+        registerBlockItem(name, toReturn, tooltipKey);
         return toReturn;
     }
 
-    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, String tooltipKey, String shiftTooltipKey) {
+    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, String tooltipKey) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()) {
             @Override
             public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
                 if (Screen.hasShiftDown()) {
                     pTooltip.add(Component.translatable(tooltipKey));
                 } else {
-                    pTooltip.add(Component.translatable(shiftTooltipKey));
+                    pTooltip.add(Component.translatable("tooltip.crst.shift"));
                 }
             }
         });

@@ -1,5 +1,6 @@
 package fr.takkers.crst.item.custom;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -31,9 +32,9 @@ public class ShadowWalkerSword extends SwordItem {
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> tooltip, TooltipFlag pIsAdvanced) {
             if(Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.crst.shifted_shadowwalker_sword"));
+                tooltip.add(Component.translatable("tooltip.crst.shadowwalker_sword").withStyle(ChatFormatting.AQUA));
             }else {
-                tooltip.add(Component.translatable("tooltip.crst.shadowwalker_sword"));
+                tooltip.add(Component.translatable("tooltip.crst.shift").withStyle(ChatFormatting.YELLOW));
             }
 
         super.appendHoverText(pStack, pLevel, tooltip, pIsAdvanced);
