@@ -1,5 +1,6 @@
 {
-  "type": "crst:vegetal",
-  "biomes": "#forge:is_jungles",
-  "feature": "crst:dense_vegetation_placed"
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_jungle",
+  "features": "crst:dense_vegetation_placed",
+  "step": "vegetal_decoration"
 }
