@@ -35,6 +35,9 @@ authors="takkers" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 Crazy Stuff is my best mod ! But you can check the other on my curseforge page :)
+
+Crazy Stuff alias CRST adds a whole universe into your world with a lot of reference to pop culture.
+CRST is complete, it adds a lot of varied features.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.crst]] #optional
