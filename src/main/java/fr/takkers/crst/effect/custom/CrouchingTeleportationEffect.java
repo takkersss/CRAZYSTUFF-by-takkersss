@@ -77,7 +77,9 @@ public class CrouchingTeleportationEffect extends MobEffect {
     @Override
     public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
         int k = 40 >> pAmplifier;
-        return pDuration % k == 0;
+        if(k == 0) {
+            return true;
+        }else return pDuration % k == 0;
     }
 
     private void AfficheTableau(Block[] blockTab){

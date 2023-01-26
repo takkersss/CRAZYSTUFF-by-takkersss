@@ -70,7 +70,7 @@ public class ModEvents {
                     Minecraft.getInstance().particleEngine.createTrackingEmitter(player, ModParticles.UNUSUAL_TOTEM_PARTICLES.get(), 30);
                     //player.getLevel().playLocalSound(player.getX(), player.getY(), player.getZ(), ModSounds.USED_UNUSUAL_TOTEM.get(), player.getSoundSource(), 0.5F, 1.0F, false);
                     player.playSound(ModSounds.USED_UNUSUAL_TOTEM.get(), 0.5F, 1.0F);
-                    player.addEffect(new MobEffectInstance(ModEffects.CROUCH_TELEPORTATION_EFFECT.get(), 4000, 0));
+                    player.addEffect(new MobEffectInstance(ModEffects.CROUCH_TELEPORTATION_EFFECT.get(), 10000, 0));
                     player.getMainHandItem().shrink(1);
 
             }
