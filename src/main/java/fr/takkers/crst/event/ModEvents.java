@@ -85,11 +85,11 @@ public class ModEvents {
         Level level = event.getLevel();
 
         if(!event.getLevel().isClientSide()){
-                if(player.getMainHandItem().getItem() == ModItems.LEVITATION_WAND.get() && !player.isCrouching()) {
+                if(player.getMainHandItem().getItem() == ModItems.LEVITATION_WAND.get() && player.isCrouching() && !player.hasEffect(ModEffects.CROUCH_TELEPORTATION_EFFECT.get())){
 
-                    player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 10, true, false));
+                    player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 6, true, false));
 
-                }else if(player.getMainHandItem().getItem() == ModItems.LEVITATION_WAND.get() && player.isCrouching()){
+                }else if(player.getMainHandItem().getItem() == ModItems.LEVITATION_WAND.get() && !player.isCrouching()){
                     List<Monster> monsters = level.getEntitiesOfClass(Monster.class, (new AABB(player.blockPosition())).inflate(8.0D, 6.0D, 8.0D));
                     /*
                     for(int i=0; i < monsters.size(); i++){

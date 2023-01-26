@@ -33,7 +33,7 @@
   "effect.crst.crouch_teleportation_effect": "Teleportation Accroupi",
   "block.crst.christmas_ball": "Boule De Noel",
   "tooltip.crst.unusual_totem": "On peut voir une inscription :",
-  "tooltip.crst.levitation_wand_shoot": "Accroupi + Clic Droit pour tirer sur des monstres !",
-  "tooltip.crst.levitation_wand_fly": "Clic Droit pour léviter !",
+  "tooltip.crst.levitation_wand_shoot": "Clic Droit pour tirer sur des monstres !",
+  "tooltip.crst.levitation_wand_fly": "Accroupi + Clic Droit pour léviter !",
   "tooltip.crst.shadowwalker_head": "§bObtenable avec la méthode vanilla"
 }

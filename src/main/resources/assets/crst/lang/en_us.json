@@ -33,7 +33,7 @@
   "effect.crst.crouch_teleportation_effect": "Crouch Teleportation Effect",
   "block.crst.christmas_ball": "Christmas Ball",
   "tooltip.crst.unusual_totem": "We can see an inscription :",
-  "tooltip.crst.levitation_wand_shoot": "Sneak + Right Click to shoot monsters !",
-  "tooltip.crst.levitation_wand_fly": "Right Click to levitate !",
+  "tooltip.crst.levitation_wand_shoot": "Right Click to shoot monsters !",
+  "tooltip.crst.levitation_wand_fly": "Sneak + Right Click to levitate !",
   "tooltip.crst.shadowwalker_head": "§bObtainable with the vanilla method"
 }
