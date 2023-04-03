@@ -16,6 +16,7 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
@@ -35,9 +36,11 @@ public class ArtefactExtractorRenderer implements BlockEntityRenderer<ArtefactEx
         pPoseStack.scale(0.5f, 0.5f, 0.5f);
         pPoseStack.mulPose(Axis.XP.rotationDegrees(270));
 
-        itemRenderer.renderStatic(itemStack, ItemTransforms.TransformType.GUI, getLightLevel(pBlockEntity.getLevel(),
+        /*itemRenderer.renderStatic(itemStack, ItemTransforms.TransformType.GUI, getLightLevel(pBlockEntity.getLevel(),
                         pBlockEntity.getBlockPos()),
-                OverlayTexture.NO_OVERLAY, pPoseStack, pBufferSource, 1);
+                OverlayTexture.NO_OVERLAY, pPoseStack, pBufferSource, 1);*/
+        itemRenderer.renderStatic(itemStack, ItemDisplayContext.GUI,getLightLevel(pBlockEntity.getLevel(),
+                pBlockEntity.getBlockPos()), OverlayTexture.NO_OVERLAY, pPoseStack, pBufferSource, pBlockEntity.getLevel(), pPackedOverlay);
         pPoseStack.popPose();
     }
 

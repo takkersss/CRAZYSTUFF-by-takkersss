@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import fr.takkers.crst.CRST;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -18,6 +19,7 @@ public class ArtefactExtractorRecipe implements Recipe<SimpleContainer> {
     public final ResourceLocation id;
     public final ItemStack output;
     public final NonNullList<Ingredient> recipeItems;
+    public static RegistryAccess keyAccess;
 
     public ArtefactExtractorRecipe(ResourceLocation id, ItemStack output,
                                    NonNullList<Ingredient> recipeItems) {
@@ -35,13 +37,14 @@ public class ArtefactExtractorRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public NonNullList<Ingredient> getIngredients() {
-        return recipeItems;
+    public ItemStack assemble(SimpleContainer p_44001_, RegistryAccess p_267165_) {
+        keyAccess = p_267165_;
+        return output;
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer pContainer) {
-        return output;
+    public NonNullList<Ingredient> getIngredients() {
+        return recipeItems;
     }
 
     @Override
@@ -50,7 +53,7 @@ public class ArtefactExtractorRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public ItemStack getResultItem() {
+    public ItemStack getResultItem(RegistryAccess p_267052_) {
         return output.copy();
     }
 
@@ -112,7 +115,7 @@ public class ArtefactExtractorRecipe implements Recipe<SimpleContainer> {
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.toNetwork(buf);
             }
-            buf.writeItemStack(recipe.getResultItem(), false);
+            buf.writeItemStack(recipe.getResultItem(keyAccess), false);
         }
 
         @SuppressWarnings("unchecked") // Need this wrapper, because generics

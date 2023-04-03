@@ -1,5 +1,6 @@
 {
   "credit": "Made by Takkers",
+  "render_type": "translucent",
   "textures": {
     "0": "crst:block/dense_vegetation_bottom",
     "particle": "crst:block/dense_vegetation_bottom"

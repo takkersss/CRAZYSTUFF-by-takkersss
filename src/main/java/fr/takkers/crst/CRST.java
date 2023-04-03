@@ -77,9 +77,9 @@ public class CRST {
 
     private void clientSetup(final FMLClientSetupEvent event) {
         EntityRenderers.register(ModEntityTypes.SHADOW_WALKER.get(), ShadowWalkerRenderer::new);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ARTEFACT_EXTRACTOR.get(), RenderType.cutout());
+        /*ItemBlockRenderTypes.setRenderLayer(ModBlocks.ARTEFACT_EXTRACTOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.DENSE_VEGETATION.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHRISTMAS_BALL.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHRISTMAS_BALL.get(), RenderType.translucent());*/
 
         MenuScreens.register(ModMenuTypes.ARTEFACT_EXTRACTOR_MENU.get(), ArtefactExtractorScreen::new);
         MenuScreens.register(ModMenuTypes.ECONOMY_CONTROL_OFFICE_MENU.get(), EconomyControlOfficeScreen::new);
@@ -125,6 +125,7 @@ public class CRST {
             event.accept(ModBlocks.CENTER_STONE_STAIRS);
             event.accept(ModBlocks.ECONOMY_CONTROL_OFFICE);
             event.accept(ModBlocks.SHEET_METAL);
+            event.accept(ModBlocks.CENTER_STONE_WALL);
         }
 
         /*

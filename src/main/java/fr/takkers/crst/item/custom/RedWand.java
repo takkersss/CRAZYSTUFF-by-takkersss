@@ -30,7 +30,7 @@ public class RedWand extends Item {
             int playerposX = playerPos.getX();
             int playerposY = playerPos.getY();
             int playerposZ = playerPos.getZ();
-            BlockPos playerPosDown = new BlockPos(playerposX, playerposY - 0.2f, playerposZ);
+            BlockPos playerPosDown = new BlockPos(playerposX, playerposY - 1, playerposZ);
 
             Block block = level.getBlockState(playerPosDown).getBlock();
 

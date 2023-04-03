@@ -46,17 +46,18 @@ public class ModBlocks {
     public static final RegistryObject<Block> CENTER_STONE = registerBlock("center_stone", ()-> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
     public static final RegistryObject<Block> CENTER_STONE_SLAB = registerBlock("center_stone_slab", ()-> new SlabBlock(BlockBehaviour.Properties.copy(CENTER_STONE.get())));
     public static final RegistryObject<Block> CENTER_STONE_STAIRS = registerBlock("center_stone_stairs", ()-> new StairBlock(CENTER_STONE.get().defaultBlockState(), BlockBehaviour.Properties.copy(CENTER_STONE.get())));
+    public static final RegistryObject<Block> CENTER_STONE_WALL = registerBlock("center_stone_wall", ()-> new WallBlock(BlockBehaviour.Properties.copy(CENTER_STONE.get())));
 
     public static final RegistryObject<Block> DENSE_VEGETATION = registerBlock("dense_vegetation", ()-> new DenseVegetation(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().strength(0.35f).sound(SoundType.GRASS)));
 
-    public static final RegistryObject<Block> SHEET_METAL = registerBlock("sheet_metal", ()-> new SheetMetal(BlockBehaviour.Properties.of(Material.METAL).strength(4f, 9f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+    public static final RegistryObject<Block> SHEET_METAL = registerBlock("sheet_metal", ()-> new SheetMetal(BlockBehaviour.Properties.of(Material.METAL).strength(4f, 15f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> CHRISTMAS_BALL = registerBlock("christmas_ball", ()-> new ChristmasBall(BlockBehaviour.Properties.of(Material.GLASS).strength(0.5f).sound(SoundType.GLASS).noOcclusion()
             .lightLevel((pState) -> {
                 return pState.getValue(ChristmasBall.LIT) ? 0 : 4 + 3 * pState.getValue(ChristmasBall.BALL);
             })
     ));
-
+    
     //register tooltip
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, String tooltipKey) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

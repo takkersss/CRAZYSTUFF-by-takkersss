@@ -42,7 +42,7 @@ public class SnowShoes extends ArmorItem implements GeoItem {
 
      */
 
-    public SnowShoes(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
+    public SnowShoes(ArmorMaterial material, Type slot, Properties settings) {
         super(material, slot, settings);
     }
 

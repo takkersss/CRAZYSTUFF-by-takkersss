@@ -35,5 +35,15 @@
   "tooltip.crst.unusual_totem": "On peut voir une inscription :",
   "tooltip.crst.levitation_wand_shoot": "Clic Droit pour tirer sur des monstres !",
   "tooltip.crst.levitation_wand_fly": "Accroupi + Clic Droit pour léviter !",
-  "tooltip.crst.shadowwalker_head": "§bObtenable avec la méthode vanilla"
+  "tooltip.crst.shadowwalker_head": "§bObtenable avec la méthode vanilla",
+  "block.crst.center_stone_wall": "Muret En Roche DU Centre",
+
+  "painting.crst.bohemian_grove1.title": "Bohemian Grove Ritual",
+  "painting.crst.bohemian_grove1.author": "takkers [CRST]",
+  "painting.crst.bohemian_grove2.title": "The Great Owl",
+  "painting.crst.bohemian_grove2.author": "takkers [CRST]",
+  "painting.crst.bohemian_grove4.title": "The Owl & The Moon",
+  "painting.crst.bohemian_grove4.author": "takkers [CRST]",
+  "painting.crst.economy_governor_p.title": "Economy Governor",
+  "painting.crst.economy_governor_p.author": "takkers [CRST]"
 }

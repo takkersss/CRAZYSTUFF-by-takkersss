@@ -1,6 +1,7 @@
 {
 	"credit": "Made by Takkers",
 	"parent": "christmas_ball",
+	"render_type": "translucent",
 	"textures": {
 		"0": "crst:block/cb/christmas_ball_red",
 		"1": "crst:block/center_stone",

@@ -37,7 +37,7 @@ public class ModItems {
     public static final RegistryObject<Item> OIL_FLASK = ITEMS.register("oil_flask", ()-> new Item(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE)));
     public static final RegistryObject<Item> MORTAR = ITEMS.register("mortar", ()-> new Mortar(new Item.Properties()));
     public static final RegistryObject<Item> CENTER_STONE_BAR = ITEMS.register("center_stone_bar", ()-> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SNOW_SHOES = ITEMS.register("snow_shoes", ()-> new SnowShoes(ModArmorMaterials.FROST, EquipmentSlot.FEET, new Item.Properties()));
+    public static final RegistryObject<Item> SNOW_SHOES = ITEMS.register("snow_shoes", ()-> new SnowShoes(ModArmorMaterials.FROST, ArmorItem.Type.BOOTS, new Item.Properties()));
     public static final RegistryObject<Item> UNUSUAL_TOTEM = ITEMS.register("unusual_totem", ()-> new UnusualTotem(new Item.Properties().stacksTo(1)));
 
 

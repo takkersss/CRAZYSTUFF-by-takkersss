@@ -3,7 +3,6 @@ package fr.takkers.crst.block.custom;
 import fr.takkers.crst.particle.ModParticles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.Wearable;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -15,7 +14,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 
-public class ShadowWalkerHead extends HorizontalDirectionalBlock implements Wearable {
+public class ShadowWalkerHead extends HorizontalDirectionalBlock {
 
     protected static final VoxelShape SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D);
 

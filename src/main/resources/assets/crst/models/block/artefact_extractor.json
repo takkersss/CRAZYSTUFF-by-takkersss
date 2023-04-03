@@ -1,9 +1,10 @@
 {
 	"credit": "Made by Takkers",
 	"texture_size": [64, 64],
+	"render_type": "cutout",
 	"textures": {
 		"0": "crst:block/artefact_extractor",
-		"1": "crst:entity/shadow_walker",
+		"1": "crst:block/shadow_walker",
 		"particle": "crst:block/artefact_extractor"
 	},
 	"elements": [
