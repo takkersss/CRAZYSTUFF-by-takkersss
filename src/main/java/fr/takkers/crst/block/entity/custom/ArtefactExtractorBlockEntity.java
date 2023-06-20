@@ -37,6 +37,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.server.ServerLifecycleHooks;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -193,7 +194,7 @@ public class ArtefactExtractorBlockEntity extends BlockEntity implements MenuPro
                 .getRecipeFor(ArtefactExtractorRecipe.Type.INSTANCE, inventory, level);
 
         return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
-                && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem(ArtefactExtractorRecipe.keyAccess))
+                && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem(ServerLifecycleHooks.getCurrentServer().registryAccess()))
                 && hasOilInOilSlot(entity) && hasTipInTipSlot(entity);
     }
 
@@ -222,7 +223,7 @@ public class ArtefactExtractorBlockEntity extends BlockEntity implements MenuPro
                 entity.itemHandler.extractItem(2,1, false);
             }
 
-            entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem(ArtefactExtractorRecipe.keyAccess).getItem(),
+            entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem(ServerLifecycleHooks.getCurrentServer().registryAccess()).getItem(),
                     entity.itemHandler.getStackInSlot(3).getCount() + 1));
 
             entity.resetProgress();

@@ -4,7 +4,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.ForgeTier;
 
 public class ModMaterialTiers {

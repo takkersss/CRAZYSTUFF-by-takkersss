@@ -18,8 +18,8 @@ public class TNTStrikeEnchantment extends Enchantment {
 
     @Override
     public void doPostAttack(LivingEntity pAttacker, Entity pTarget, int pLevel) {
-        if(!pAttacker.level.isClientSide()) {
-            ServerLevel world = ((ServerLevel) pAttacker.level);
+        if(!pAttacker.level().isClientSide()) {
+            ServerLevel world = ((ServerLevel) pAttacker.level());
             BlockPos position = pTarget.blockPosition();
             Level level = world.getLevel();
             BlockPos upPosition = new BlockPos(position.getX(), position.getY() + 5, position.getZ());

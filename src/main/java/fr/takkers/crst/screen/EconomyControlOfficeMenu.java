@@ -20,14 +20,14 @@ public class EconomyControlOfficeMenu extends AbstractContainerMenu {
     private final Level level;
 
     public EconomyControlOfficeMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()));
+        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()));
     }
 
     public EconomyControlOfficeMenu(int pContainerId, Inventory inv, BlockEntity entity) {
         super(ModMenuTypes.ECONOMY_CONTROL_OFFICE_MENU.get(), pContainerId);
         checkContainerSize(inv, 1);
         blockEntity = ((EconomyControlOfficeBlockEntity) entity);
-        this.level = inv.player.level;
+        this.level = inv.player.level();
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);

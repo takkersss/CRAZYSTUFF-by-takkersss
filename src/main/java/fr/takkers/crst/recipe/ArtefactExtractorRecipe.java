@@ -12,6 +12,7 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.server.ServerLifecycleHooks;
 
 import javax.annotation.Nullable;
 
@@ -19,7 +20,6 @@ public class ArtefactExtractorRecipe implements Recipe<SimpleContainer> {
     public final ResourceLocation id;
     public final ItemStack output;
     public final NonNullList<Ingredient> recipeItems;
-    public static RegistryAccess keyAccess;
 
     public ArtefactExtractorRecipe(ResourceLocation id, ItemStack output,
                                    NonNullList<Ingredient> recipeItems) {
@@ -38,8 +38,8 @@ public class ArtefactExtractorRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public ItemStack assemble(SimpleContainer p_44001_, RegistryAccess p_267165_) {
-        keyAccess = p_267165_;
-        return output;
+        p_44001_.removeItem(0, 1);
+        return getResultItem(p_267165_);
     }
 
     @Override
@@ -115,7 +115,8 @@ public class ArtefactExtractorRecipe implements Recipe<SimpleContainer> {
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.toNetwork(buf);
             }
-            buf.writeItemStack(recipe.getResultItem(keyAccess), false);
+            //buf.writeItemStack(recipe.getResultItem(), false);
+            buf.writeItemStack(recipe.getResultItem(ServerLifecycleHooks.getCurrentServer().registryAccess()), false);
         }
 
         @SuppressWarnings("unchecked") // Need this wrapper, because generics

@@ -10,7 +10,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -34,25 +33,25 @@ public class ModBlocks {
  */
 
     public static final RegistryObject<Block> SHADOWWALKER_HEAD = registerBlock("shadowwalker_head",
-            () -> new ShadowWalkerHead(BlockBehaviour.Properties.of(Material.DECORATION).strength(1f)), "tooltip.crst.shadowwalker_head");
+            () -> new ShadowWalkerHead(BlockBehaviour.Properties.copy(Blocks.PLAYER_HEAD).strength(1f)), "tooltip.crst.shadowwalker_head");
 
     public static final RegistryObject<Block> ECONOMY_CONTROL_OFFICE = registerBlock("economy_control_office",
-            () -> new EconomyControlOffice(BlockBehaviour.Properties.of(Material.WOOD).strength(3.5f).sound(SoundType.WOOD)), "tooltip.crst.economy_control_office");
+            () -> new EconomyControlOffice(BlockBehaviour.Properties.copy(Blocks.CARTOGRAPHY_TABLE).strength(3.5f).sound(SoundType.WOOD)), "tooltip.crst.economy_control_office");
 
     public static final RegistryObject<Block> ARTEFACT_EXTRACTOR = registerBlock("artefact_extractor",
-            () -> new ArtefactExtractor(BlockBehaviour.Properties.of(Material.METAL).strength(3.5f).sound(SoundType.METAL)));
+            () -> new ArtefactExtractor(BlockBehaviour.Properties.copy(Blocks.SMITHING_TABLE).strength(3.5f).sound(SoundType.METAL)));
 
     //Center Stone
-    public static final RegistryObject<Block> CENTER_STONE = registerBlock("center_stone", ()-> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> CENTER_STONE = registerBlock("center_stone", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(2f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
     public static final RegistryObject<Block> CENTER_STONE_SLAB = registerBlock("center_stone_slab", ()-> new SlabBlock(BlockBehaviour.Properties.copy(CENTER_STONE.get())));
     public static final RegistryObject<Block> CENTER_STONE_STAIRS = registerBlock("center_stone_stairs", ()-> new StairBlock(CENTER_STONE.get().defaultBlockState(), BlockBehaviour.Properties.copy(CENTER_STONE.get())));
     public static final RegistryObject<Block> CENTER_STONE_WALL = registerBlock("center_stone_wall", ()-> new WallBlock(BlockBehaviour.Properties.copy(CENTER_STONE.get())));
 
-    public static final RegistryObject<Block> DENSE_VEGETATION = registerBlock("dense_vegetation", ()-> new DenseVegetation(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().strength(0.35f).sound(SoundType.GRASS)));
+    public static final RegistryObject<Block> DENSE_VEGETATION = registerBlock("dense_vegetation", ()-> new DenseVegetation(BlockBehaviour.Properties.copy(Blocks.JUNGLE_LEAVES).noCollission().strength(0.35f).sound(SoundType.GRASS)));
 
-    public static final RegistryObject<Block> SHEET_METAL = registerBlock("sheet_metal", ()-> new SheetMetal(BlockBehaviour.Properties.of(Material.METAL).strength(4f, 15f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+    public static final RegistryObject<Block> SHEET_METAL = registerBlock("sheet_metal", ()-> new SheetMetal(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(4f, 15f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
-    public static final RegistryObject<Block> CHRISTMAS_BALL = registerBlock("christmas_ball", ()-> new ChristmasBall(BlockBehaviour.Properties.of(Material.GLASS).strength(0.5f).sound(SoundType.GLASS).noOcclusion()
+    public static final RegistryObject<Block> CHRISTMAS_BALL = registerBlock("christmas_ball", ()-> new ChristmasBall(BlockBehaviour.Properties.copy(Blocks.GLASS).strength(0.5f).sound(SoundType.GLASS).noOcclusion()
             .lightLevel((pState) -> {
                 return pState.getValue(ChristmasBall.LIT) ? 0 : 4 + 3 * pState.getValue(ChristmasBall.BALL);
             })

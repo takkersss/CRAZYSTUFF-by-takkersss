@@ -33,6 +33,7 @@ public class ModVillagers {
                 , ImmutableSet.of(), ImmutableSet.of(), SoundEvents.VILLAGER_WORK_CARTOGRAPHER));
 
 
+    /*
     public static void registerPOIs() {
         try {
             ObfuscationReflectionHelper.findMethod(PoiType.class,
@@ -41,6 +42,7 @@ public class ModVillagers {
             exception.printStackTrace();
         }
     }
+    */
 
 
     public static void register(IEventBus eventBus) {

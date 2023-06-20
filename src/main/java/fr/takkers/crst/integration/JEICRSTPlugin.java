@@ -2,6 +2,11 @@ package fr.takkers.crst.integration;
 
 import fr.takkers.crst.CRST;
 import fr.takkers.crst.recipe.ArtefactExtractorRecipe;
+import mezz.jei.api.IModPlugin;
+import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.recipe.RecipeType;
+import mezz.jei.api.registration.IRecipeCategoryRegistration;
+import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeManager;
@@ -10,8 +15,8 @@ import net.minecraft.world.item.crafting.RecipeManager;
 import java.util.List;
 import java.util.Objects;
 
-//@JeiPlugin
-public class JEICRSTPlugin { /* implements IModPlugin {
+@JeiPlugin
+public class JEICRSTPlugin implements IModPlugin {
     public static RecipeType<ArtefactExtractorRecipe> ARTEFACT_EXTRACTOR_TYPE =
             new RecipeType<>(ArtefactExtractorRecipeCategory.UID, ArtefactExtractorRecipe.class);
 
@@ -33,5 +38,5 @@ public class JEICRSTPlugin { /* implements IModPlugin {
         List<ArtefactExtractorRecipe> recipesInfusing = rm.getAllRecipesFor(ArtefactExtractorRecipe.Type.INSTANCE);
         registration.addRecipes(ARTEFACT_EXTRACTOR_TYPE, recipesInfusing);
     }
-    */
+
 }

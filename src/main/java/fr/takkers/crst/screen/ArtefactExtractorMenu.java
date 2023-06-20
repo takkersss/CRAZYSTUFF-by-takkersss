@@ -20,14 +20,14 @@ public class ArtefactExtractorMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public ArtefactExtractorMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
+        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
 
     public ArtefactExtractorMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.ARTEFACT_EXTRACTOR_MENU.get(), pContainerId);
         checkContainerSize(inv, 4);
         blockEntity = ((ArtefactExtractorBlockEntity) entity);
-        this.level = inv.player.level;
+        this.level = inv.player.level();
         this.data = data;
 
         addPlayerInventory(inv);

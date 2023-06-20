@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "crst:christmas_ball"
+    },
+    "title": "Christmas Ball",
+    "description": "Christmas already ?",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "crst:center_stone",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "crst:artefact_extractor"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

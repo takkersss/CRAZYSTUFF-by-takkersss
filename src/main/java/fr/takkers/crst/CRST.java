@@ -26,9 +26,10 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Skeleton;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -63,6 +64,7 @@ public class CRST {
         ModEffects.register(eventBus);
         ModPaintings.register(eventBus);
         ModBiomeModifiers.register(eventBus);
+        ModCreativeTab.register(eventBus);
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
@@ -88,22 +90,24 @@ public class CRST {
 
     private void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            SpawnPlacements.register(EntityType.WITHER_SKELETON,
+            //SpawnPlacements.register(EntityType.WITHER_SKELETON,
+
+            /*SpawnPlacements.register(ModEntityTypes.SHADOW_WALKER.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Skeleton::checkMonsterSpawnRules);
+                    Skeleton::checkMonsterSpawnRules);*/
 
 
-            ModVillagers.registerPOIs();
+            //ModVillagers.registerPOIs();
             ModMessages.register();
         });
 
-        event.enqueueWork((ModMessages::register));
+        //event.enqueueWork((ModMessages::register));
     }
 
-    private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if(event.getTab() == ModCreativeTab.CRST_TAB) {
-
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        // Add to ingredients tab
+        if (event.getTab() == ModCreativeTab.CRST_TAB.get()) {
             event.accept(ModItems.CENTER_STONE_BAR);
             event.accept(ModItems.DIAMOND_TIP);
             event.accept(ModItems.LEVITATION_WAND);
@@ -127,14 +131,6 @@ public class CRST {
             event.accept(ModBlocks.SHEET_METAL);
             event.accept(ModBlocks.CENTER_STONE_WALL);
         }
-
-        /*
-        if(event.getTab() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.ZIRCON);
-        }
-
-         */
-
     }
 
 }

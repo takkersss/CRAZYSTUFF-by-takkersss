@@ -32,7 +32,7 @@ public class CrouchingTeleportationEffect extends MobEffect {
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
 
-        Level level = pLivingEntity.level;
+        Level level = pLivingEntity.level();
 
         if(!level.isClientSide()) {
             if(pLivingEntity.isCrouching()){
