@@ -88,31 +88,34 @@ public class ModEvents {
         Item leftHandItem = player.getOffhandItem().getItem();
 
         if(!event.getLevel().isClientSide()){
-                if((mainHandItem == ModItems.LEVITATION_WAND.get() || leftHandItem == ModItems.LEVITATION_WAND.get())&& player.isCrouching() && !player.hasEffect(ModEffects.CROUCH_TELEPORTATION_EFFECT.get())){
+            if((mainHandItem == ModItems.LEVITATION_WAND.get() || leftHandItem == ModItems.LEVITATION_WAND.get())&& player.isCrouching() && !player.hasEffect(ModEffects.CROUCH_TELEPORTATION_EFFECT.get())){
 
-                    player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 6, true, false));
+                // LEVITATION
+                player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 6, true, false));
 
-                }else if(!player.isCrouching()) {
-                    List<Monster> monsters = level.getEntitiesOfClass(Monster.class, (new AABB(player.blockPosition())).inflate(8.0D, 6.0D, 8.0D));
-                    Monster nearestMonster = level.getNearestEntity(monsters, TargetingConditions.DEFAULT, player, 10, 10, 10);
-                    if (nearestMonster != null) {
-                        level.addFreshEntity(new ShulkerBullet(level, player, nearestMonster, player.getDirection().getAxis()));
-                        if (!player.isCreative()) {
-                            if (mainHandItem == ModItems.LEVITATION_WAND.get()) {
-                                player.getCooldowns().addCooldown(mainHandItem, 5);
-                                player.getMainHandItem().hurtAndBreak(1, player, (p_150845_) -> {
-                                    p_150845_.broadcastBreakEvent(event.getHand());
-                                });
-                            } else if (leftHandItem == ModItems.LEVITATION_WAND.get()) {
-                                player.getCooldowns().addCooldown(leftHandItem, 5);
-                                player.getOffhandItem().hurtAndBreak(1, player, (p_150845_) -> {
-                                    p_150845_.broadcastBreakEvent(event.getHand());
-                                });
-                            }
+            }else if(!player.isCrouching() && (mainHandItem == ModItems.LEVITATION_WAND.get() || leftHandItem == ModItems.LEVITATION_WAND.get())) {
+
+                // ATTAQUE
+                List<Monster> monsters = level.getEntitiesOfClass(Monster.class, (new AABB(player.blockPosition())).inflate(8.0D, 6.0D, 8.0D));
+                Monster nearestMonster = level.getNearestEntity(monsters, TargetingConditions.DEFAULT, player, 10, 10, 10);
+                if (nearestMonster != null) {
+                    level.addFreshEntity(new ShulkerBullet(level, player, nearestMonster, player.getDirection().getAxis()));
+                    if (!player.isCreative()) {
+                        if (mainHandItem == ModItems.LEVITATION_WAND.get()) {
+                            player.getCooldowns().addCooldown(mainHandItem, 5);
+                            player.getMainHandItem().hurtAndBreak(1, player, (p_150845_) -> {
+                                p_150845_.broadcastBreakEvent(event.getHand());
+                            });
+                        } else if (leftHandItem == ModItems.LEVITATION_WAND.get()) {
+                            player.getCooldowns().addCooldown(leftHandItem, 5);
+                            player.getOffhandItem().hurtAndBreak(1, player, (p_150845_) -> {
+                                p_150845_.broadcastBreakEvent(event.getHand());
+                            });
                         }
-
                     }
+
                 }
+            }
                     /*
                     for(int i=0; i < monsters.size(); i++){
                         level.addFreshEntity(new ShulkerBullet(level, player, monsters.get(i), player.getDirection().getAxis()));
