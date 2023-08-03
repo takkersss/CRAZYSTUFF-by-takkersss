@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "crst:shadowwalker_scales"
+    }
+  },
+  "result": {
+    "item": "crst:shadowwalker_chestplate"
+  }
+}

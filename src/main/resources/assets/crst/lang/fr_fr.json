@@ -38,6 +38,12 @@
   "tooltip.crst.shadowwalker_head": "§bObtenable avec la méthode vanilla",
   "block.crst.center_stone_wall": "Muret En Roche DU Centre",
   "tooltip.crst.snow_shoes": "Va sur la neige poudreuse !",
+  "item.crst.shadowwalker_scales": "Ecailles de Marcheur de l'Ombre",
+
+  "item.crst.shadowwalker_helmet": "Casque En Ecailles De l'Ombre",
+  "item.crst.shadowwalker_chestplate": "Plastron En Ecailles De l'Ombre",
+  "item.crst.shadowwalker_leggings": "Pantalon En Ecailles De l'Ombre",
+  "item.crst.shadowwalker_boots": "Bottes En Ecailles De l'Ombre",
 
   "painting.crst.bohemian_grove1.title": "Bohemian Grove Ritual",
   "painting.crst.bohemian_grove1.author": "takkers [CRST]",

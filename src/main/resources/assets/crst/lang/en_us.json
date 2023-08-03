@@ -38,6 +38,12 @@
   "tooltip.crst.shadowwalker_head": "§bObtainable with the vanilla method",
   "block.crst.center_stone_wall": "Center Stone Wall",
   "tooltip.crst.snow_shoes": "Go on powder snow !",
+  "item.crst.shadowwalker_scales": "Shadow Walker Scales",
+
+  "item.crst.shadowwalker_helmet": "Shadow Scales Helmet",
+  "item.crst.shadowwalker_chestplate": "Shadow Scales Chestplate",
+  "item.crst.shadowwalker_leggings": "Shadow Scales Leggings",
+  "item.crst.shadowwalker_boots": "Shadow Scales Boots",
 
   "painting.crst.bohemian_grove1.title": "Bohemian Grove Ritual",
   "painting.crst.bohemian_grove1.author": "takkers [CRST]",

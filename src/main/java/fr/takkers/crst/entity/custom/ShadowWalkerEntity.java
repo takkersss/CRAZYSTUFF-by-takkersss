@@ -132,6 +132,8 @@ public class ShadowWalkerEntity extends Monster implements GeoEntity {
                     this.spawnAtLocation(itemstack);
                 }
             }
+        }else if(entity instanceof Player){
+            this.spawnAtLocation(new ItemStack(ModItems.SHADOWWALKER_SCALES.get(), random.nextInt(1,3)));
         }
 
     }
