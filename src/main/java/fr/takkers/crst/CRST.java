@@ -121,10 +121,10 @@ public class CRST {
             event.accept(ModItems.UNUSUAL_TOTEM);
             event.accept(ModItems.SHADOWWALKER_SCALES);
 
-            //event.accept(ModItems.SHADOWWALKER_HELMET);
+            event.accept(ModItems.SHADOWWALKER_HELMET);
             event.accept(ModItems.SHADOWWALKER_CHESTPLATE);
-            //event.accept(ModItems.SHADOWWALKER_LEGGINGS);
-            //event.accept(ModItems.SHADOWWALKER_BOOTS);
+            event.accept(ModItems.SHADOWWALKER_LEGGINGS);
+            event.accept(ModItems.SHADOWWALKER_BOOTS);
 
             event.accept(ModBlocks.ARTEFACT_EXTRACTOR);
             event.accept(ModBlocks.CENTER_STONE);

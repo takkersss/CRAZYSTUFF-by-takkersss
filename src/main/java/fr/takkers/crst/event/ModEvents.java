@@ -12,9 +12,14 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Shulker;
@@ -27,15 +32,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.level.NoteBlockEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
+
+import static fr.takkers.crst.item.ModItems.*;
 
 @Mod.EventBusSubscriber(modid = CRST.MODID)
 public class ModEvents {
@@ -121,6 +131,37 @@ public class ModEvents {
                         level.addFreshEntity(new ShulkerBullet(level, player, monsters.get(i), player.getDirection().getAxis()));
                     }
                     */
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingHurt(LivingHurtEvent event) {
+        if (event.getEntity() instanceof Player player) { // Fonctionne que sur les joueurs
+
+            // Récupère les emplacements d'armure
+            ItemStack armorHelmet = player.getItemBySlot(EquipmentSlot.HEAD);
+            ItemStack armorChestplate = player.getItemBySlot(EquipmentSlot.CHEST);
+            ItemStack armorLeggings = player.getItemBySlot(EquipmentSlot.LEGS);
+            ItemStack armorBoots = player.getItemBySlot(EquipmentSlot.FEET);
+
+            if(event.getSource().is(DamageTypeTags.IS_EXPLOSION)) {
+                float damages = event.getAmount();
+                float reduceFactor = 0.78f;
+                if (armorHelmet.getItem() == SHADOWWALKER_HELMET.get()) {
+                    damages *= reduceFactor;
+                }
+                if (armorChestplate.getItem() == SHADOWWALKER_CHESTPLATE.get()) {
+                    damages *= reduceFactor;
+                }
+                if (armorLeggings.getItem() == SHADOWWALKER_LEGGINGS.get()) {
+                    damages *= reduceFactor;
+                }
+                if (armorBoots.getItem() == SHADOWWALKER_BOOTS.get()) {
+                    damages *= reduceFactor;
+                }
+
+                event.setAmount(damages);
+            }
         }
     }
 
