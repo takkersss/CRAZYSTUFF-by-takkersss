@@ -4,7 +4,7 @@
       "item": "crst:triangular_artefact"
     },
     "title": "Triangular Artefact",
-    "description": "You doesn't have the right to do that !",
+    "description": "You don't have the right to do that !",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true

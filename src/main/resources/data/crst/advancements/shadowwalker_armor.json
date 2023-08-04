@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "crst:center_stone"
+      "item": "crst:shadowwalker_chestplate"
     },
-    "title": "Crazy Stuff",
-    "description": "A really deep universe",
+    "title": "Shadow Scales Armor",
+    "description": "A strange chestplate",
     "frame": "task",
     "show_toast": true,
-    "announce_to_chat": true,
-    "background": "crst:textures/block/center_stone.png"
+    "announce_to_chat": true
   },
+  "parent": "crst:center_stone",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "crst:center_stone"
+              "crst:shadowwalker_chestplate"
             ]
           }
         ]
