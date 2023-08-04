@@ -1,0 +1,42 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "textures": {
+    "0": "crst:block/pwd_klng_gnomon",
+    "particle": "crst:block/klng_gnomon"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [0, 180, 0],
+      "translation": [0, -2.5, 0],
+      "scale": [0.59, 0.59, 0.59]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [0, 180, 0],
+      "translation": [0, -2.5, 0],
+      "scale": [0.59, 0.59, 0.59]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, 180, 0],
+      "translation": [0.75, -2, 0],
+      "scale": [0.73, 0.73, 0.73]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 180, 0],
+      "translation": [0.75, -2, 0],
+      "scale": [0.73, 0.73, 0.73]
+    },
+    "ground": {
+      "scale": [0.43, 0.43, 0.43]
+    },
+    "gui": {
+      "rotation": [31, -150, 0],
+      "translation": [0, -5.5, 0],
+      "scale": [0.88, 0.88, 0.88]
+    },
+    "head": {
+      "translation": [0, -14, 0],
+      "scale": [2.97, 2.97, 2.97]
+    }
+  }
+}

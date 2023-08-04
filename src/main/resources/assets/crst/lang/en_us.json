@@ -39,6 +39,9 @@
   "block.crst.center_stone_wall": "Center Stone Wall",
   "tooltip.crst.snow_shoes": "Go on powder snow !",
   "item.crst.shadowwalker_scales": "Shadow Walker Scales",
+  "block.crst.klng_gnomon": "KLNG Gnomon",
+  "block.crst.pwd_klng_gnomon": "Powered KLNG Gnomon",
+  "tooltip.crst.klng_gnomon": "§bPlace it high in the direction of the moon at its rise/set",
 
   "item.crst.shadowwalker_helmet": "Shadow Scales Helmet",
   "item.crst.shadowwalker_chestplate": "Shadow Scales Chestplate",

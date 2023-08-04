@@ -22,6 +22,8 @@ import fr.takkers.crst.world.feature.ModPlacedFeatures;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -120,6 +122,7 @@ public class CRST {
             event.accept(ModItems.TRIANGULAR_ARTEFACT);
             event.accept(ModItems.UNUSUAL_TOTEM);
             event.accept(ModItems.SHADOWWALKER_SCALES);
+            event.accept(ModItems.PWD_KLNG_GNOMON_ITEM);
 
             event.accept(ModItems.SHADOWWALKER_HELMET);
             event.accept(ModItems.SHADOWWALKER_CHESTPLATE);
@@ -136,6 +139,7 @@ public class CRST {
             event.accept(ModBlocks.ECONOMY_CONTROL_OFFICE);
             event.accept(ModBlocks.SHEET_METAL);
             event.accept(ModBlocks.CENTER_STONE_WALL);
+            event.accept(ModBlocks.KLNG_GNOMON);
         }
     }
 

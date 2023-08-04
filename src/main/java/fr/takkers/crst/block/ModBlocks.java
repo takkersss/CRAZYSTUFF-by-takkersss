@@ -19,6 +19,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.Supplier;
 
+import static com.ibm.icu.lang.UCharacter.GraphemeClusterBreak.T;
+
 
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
@@ -56,7 +58,13 @@ public class ModBlocks {
                 return pState.getValue(ChristmasBall.LIT) ? 0 : 4 + 3 * pState.getValue(ChristmasBall.BALL);
             })
     ));
-    
+
+    public static final RegistryObject<Block> KLNG_GNOMON = registerBlock("klng_gnomon", ()-> new KLNGGnomon(BlockBehaviour.Properties.copy(Blocks.WITHER_SKELETON_SKULL).strength(3f).noOcclusion()), "tooltip.crst.klng_gnomon");
+
+    public static final RegistryObject<Block> PWD_KLNG_GNOMON = BLOCKS.register("pwd_klng_gnomon", ()-> new PwdKLNGGnomon(BlockBehaviour.Properties.copy(Blocks.WITHER_SKELETON_SKULL).strength(3f).lightLevel((p_50755_) -> {
+        return 10;
+    }).noOcclusion()));
+
     //register tooltip
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, String tooltipKey) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
@@ -76,6 +84,8 @@ public class ModBlocks {
             }
         });
     }
+
+
 
 
     //register Block

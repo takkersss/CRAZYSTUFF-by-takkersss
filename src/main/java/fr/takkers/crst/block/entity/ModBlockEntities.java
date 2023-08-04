@@ -4,6 +4,7 @@ import fr.takkers.crst.CRST;
 import fr.takkers.crst.block.ModBlocks;
 import fr.takkers.crst.block.entity.custom.ArtefactExtractorBlockEntity;
 import fr.takkers.crst.block.entity.custom.EconomyControlOfficeBlockEntity;
+import fr.takkers.crst.block.entity.custom.PwdKLNGGnomonEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -23,6 +24,11 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("economy_control_office_block_entity", () ->
                     BlockEntityType.Builder.of(EconomyControlOfficeBlockEntity::new,
                             ModBlocks.ECONOMY_CONTROL_OFFICE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<PwdKLNGGnomonEntity>> PWD_KLNG_GNOMON_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("pwd_klng_gnomon_block_entity", () ->
+                    BlockEntityType.Builder.of(PwdKLNGGnomonEntity::new,
+                            ModBlocks.PWD_KLNG_GNOMON.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "crst:block/pwd_klng_gnomon",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "crst:block/pwd_klng_gnomon",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "crst:block/pwd_klng_gnomon"
+    },
+    "facing=west": {
+      "model": "crst:block/pwd_klng_gnomon",
+      "y": 90
+    }
+  }
+}

@@ -2,6 +2,7 @@ package fr.takkers.crst.event;
 
 import fr.takkers.crst.CRST;
 import fr.takkers.crst.block.ModBlocks;
+import fr.takkers.crst.block.custom.client.PwdKLNGGnomonRenderer;
 import fr.takkers.crst.block.entity.ModBlockEntities;
 import fr.takkers.crst.block.entity.renderer.ArtefactExtractorRenderer;
 import fr.takkers.crst.block.entity.renderer.EconomyControlOfficeRenderer;
@@ -29,6 +30,8 @@ public class ClientEvents {
                     EconomyControlOfficeRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.ARTEFACT_EXTRACTOR_BLOCK_ENTITY.get(),
                     ArtefactExtractorRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.PWD_KLNG_GNOMON_BLOCK_ENTITY.get(),
+                    PwdKLNGGnomonRenderer::new);
         }
 
         /*

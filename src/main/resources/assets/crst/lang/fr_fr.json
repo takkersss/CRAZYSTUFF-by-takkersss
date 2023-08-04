@@ -39,6 +39,9 @@
   "block.crst.center_stone_wall": "Muret En Roche DU Centre",
   "tooltip.crst.snow_shoes": "Va sur la neige poudreuse !",
   "item.crst.shadowwalker_scales": "Ecailles de Marcheur de l'Ombre",
+  "block.crst.klng_gnomon": "Gnomon KLNG",
+  "block.crst.pwd_klng_gnomon": "Gnomon KLNG alimenté",
+  "tooltip.crst.klng_gnomon": "§bPlace-le en hauteur dans la direction de la lune à son levé/couché",
 
   "item.crst.shadowwalker_helmet": "Casque En Ecailles De l'Ombre",
   "item.crst.shadowwalker_chestplate": "Plastron En Ecailles De l'Ombre",
