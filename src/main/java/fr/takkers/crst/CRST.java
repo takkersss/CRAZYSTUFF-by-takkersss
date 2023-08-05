@@ -6,6 +6,7 @@ import fr.takkers.crst.effect.ModEffects;
 import fr.takkers.crst.entity.ModEntityTypes;
 import fr.takkers.crst.entity.client.ShadowWalkerRenderer;
 import fr.takkers.crst.enchantment.ModEnchantments;
+import fr.takkers.crst.event.loot.ModLootModifiers;
 import fr.takkers.crst.item.ModItems;
 import fr.takkers.crst.networking.ModMessages;
 import fr.takkers.crst.painting.ModPaintings;
@@ -67,6 +68,7 @@ public class CRST {
         ModPaintings.register(eventBus);
         ModBiomeModifiers.register(eventBus);
         ModCreativeTab.register(eventBus);
+        ModLootModifiers.register(eventBus);
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
