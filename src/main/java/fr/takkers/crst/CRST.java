@@ -124,7 +124,7 @@ public class CRST {
             event.accept(ModItems.TRIANGULAR_ARTEFACT);
             event.accept(ModItems.UNUSUAL_TOTEM);
             event.accept(ModItems.SHADOWWALKER_SCALES);
-            event.accept(ModItems.PWD_KLNG_GNOMON_ITEM);
+            event.accept(ModItems.ARTEFACT_BALL);
 
             event.accept(ModItems.SHADOWWALKER_HELMET);
             event.accept(ModItems.SHADOWWALKER_CHESTPLATE);
@@ -142,6 +142,7 @@ public class CRST {
             event.accept(ModBlocks.SHEET_METAL);
             event.accept(ModBlocks.CENTER_STONE_WALL);
             event.accept(ModBlocks.KLNG_GNOMON);
+            event.accept(ModItems.PWD_KLNG_GNOMON_ITEM);
         }
     }
 

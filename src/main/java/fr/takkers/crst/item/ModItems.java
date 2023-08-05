@@ -42,6 +42,7 @@ public class ModItems {
     public static final RegistryObject<Item> UNUSUAL_TOTEM = ITEMS.register("unusual_totem", ()-> new UnusualTotem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> SHADOWWALKER_SCALES = ITEMS.register("shadowwalker_scales", ()-> new Item(new Item.Properties()));
     public static final RegistryObject<Item> PWD_KLNG_GNOMON_ITEM = ITEMS.register("pwd_klng_gnomon", ()-> new PwdKLNGGnomonItem(ModBlocks.PWD_KLNG_GNOMON.get(), new Item.Properties())); // same name as the block (BlockItem here)
+    public static final RegistryObject<Item> ARTEFACT_BALL = ITEMS.register("artefact_ball", () -> new Item(new Item.Properties().stacksTo(1)));
 
 
     public static final RegistryObject<Item> SHADOWWALKER_HELMET = ITEMS.register("shadowwalker_helmet", ()-> new ShadowWalkerArmorItem(ModArmorMaterials.SHADOW, ArmorItem.Type.HELMET, new Item.Properties()));

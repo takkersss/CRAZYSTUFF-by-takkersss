@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "crst:artefact_ball"
+    },
+    "title": "The Artefact Ball !",
+    "description": "Very close to his power...",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "crst:pwd_klng_gnomon",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "crst:artefact_ball"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

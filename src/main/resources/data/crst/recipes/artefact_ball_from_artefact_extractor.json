@@ -1,0 +1,11 @@
+{
+  "type": "crst:artefact_extracting",
+  "ingredients": [
+    {
+      "item": "crst:pwd_klng_gnomon"
+    }
+  ],
+  "output": {
+    "item": "crst:artefact_ball"
+  }
+}

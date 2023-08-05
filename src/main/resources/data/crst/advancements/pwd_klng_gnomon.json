@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "crst:pwd_klng_gnomon"
+    },
+    "title": "Powered KLNG Gnomon !",
+    "description": "OVERPOWERED",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "crst:klng_gnomon",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "crst:pwd_klng_gnomon"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
