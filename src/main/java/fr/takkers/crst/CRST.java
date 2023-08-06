@@ -112,37 +112,48 @@ public class CRST {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         // Add to ingredients tab
         if (event.getTab() == ModCreativeTab.CRST_TAB.get()) {
+
+            // MISC
             event.accept(ModItems.CENTER_STONE_BAR);
             event.accept(ModItems.DIAMOND_TIP);
-            event.accept(ModItems.LEVITATION_WAND);
             event.accept(ModItems.MORTAR);
             event.accept(ModItems.OIL_FLASK);
+
             event.accept(ModItems.RED_WAND);
-            event.accept(ModItems.SHADOWWALKER_SPAWN_EGG);
-            event.accept(ModItems.SHADOWWALKER_SWORD);
+            event.accept(ModItems.LEVITATION_WAND);
             event.accept(ModItems.SNOW_SHOES);
-            event.accept(ModItems.TRIANGULAR_ARTEFACT);
-            event.accept(ModItems.UNUSUAL_TOTEM);
+
+            // SHADOW WALKER
+            event.accept(ModItems.SHADOWWALKER_SPAWN_EGG);
             event.accept(ModItems.SHADOWWALKER_SCALES);
-            event.accept(ModItems.ARTEFACT_BALL);
+            event.accept(ModItems.SHADOWWALKER_SWORD);
 
             event.accept(ModItems.SHADOWWALKER_HELMET);
             event.accept(ModItems.SHADOWWALKER_CHESTPLATE);
+            event.accept(ModItems.PWD_SHADOWWALKER_CHESTPLATE);
             event.accept(ModItems.SHADOWWALKER_LEGGINGS);
             event.accept(ModItems.SHADOWWALKER_BOOTS);
 
-            event.accept(ModBlocks.ARTEFACT_EXTRACTOR);
+            // BLOCK
             event.accept(ModBlocks.CENTER_STONE);
             event.accept(ModBlocks.CENTER_STONE_SLAB);
-            event.accept(ModBlocks.SHADOWWALKER_HEAD);
-            event.accept(ModBlocks.CHRISTMAS_BALL);
-            event.accept(ModBlocks.DENSE_VEGETATION);
             event.accept(ModBlocks.CENTER_STONE_STAIRS);
-            event.accept(ModBlocks.ECONOMY_CONTROL_OFFICE);
-            event.accept(ModBlocks.SHEET_METAL);
             event.accept(ModBlocks.CENTER_STONE_WALL);
+            event.accept(ModBlocks.DENSE_VEGETATION);
+            event.accept(ModBlocks.SHEET_METAL);
+
+            //BLOCK UTIL
+            event.accept(ModBlocks.ECONOMY_CONTROL_OFFICE);
+            event.accept(ModBlocks.ARTEFACT_EXTRACTOR);
+            event.accept(ModBlocks.CHRISTMAS_BALL);
+
+            // ARTEFACT
             event.accept(ModBlocks.KLNG_GNOMON);
             event.accept(ModItems.PWD_KLNG_GNOMON_ITEM);
+            event.accept(ModItems.ARTEFACT_BALL);
+            event.accept(ModBlocks.SHADOWWALKER_HEAD);
+            event.accept(ModItems.TRIANGULAR_ARTEFACT);
+            event.accept(ModItems.UNUSUAL_TOTEM);
         }
     }
 

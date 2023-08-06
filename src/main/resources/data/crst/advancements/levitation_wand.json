@@ -5,7 +5,7 @@
     },
     "title": "Levitation Wand",
     "description": "Heads will fly !",
-    "frame": "task",
+    "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true
   },

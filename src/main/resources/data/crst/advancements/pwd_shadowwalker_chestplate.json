@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "crst:artefact_ball"
+      "item": "crst:pwd_shadowwalker_chestplate"
     },
-    "title": "The Artefact Ball !",
-    "description": "Very close to his power...",
-    "frame": "task",
+    "title": "YOUR power",
+    "description": "Chestplate lord",
+    "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "crst:pwd_klng_gnomon",
+  "parent": "crst:artefact_ball",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "crst:artefact_ball"
+              "crst:pwd_shadowwalker_chestplate"
             ]
           }
         ]

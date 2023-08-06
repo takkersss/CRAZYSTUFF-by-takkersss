@@ -47,6 +47,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> SHADOWWALKER_HELMET = ITEMS.register("shadowwalker_helmet", ()-> new ShadowWalkerArmorItem(ModArmorMaterials.SHADOW, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> SHADOWWALKER_CHESTPLATE = ITEMS.register("shadowwalker_chestplate", ()-> new ShadowWalkerArmorItem(ModArmorMaterials.SHADOW, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> PWD_SHADOWWALKER_CHESTPLATE = ITEMS.register("pwd_shadowwalker_chestplate", ()-> new PwdShadowWalkerArmorItem(ModArmorMaterials.PWD_SHADOW, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> SHADOWWALKER_LEGGINGS = ITEMS.register("shadowwalker_leggings", ()-> new ShadowWalkerArmorItem(ModArmorMaterials.SHADOW, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> SHADOWWALKER_BOOTS = ITEMS.register("shadowwalker_boots", ()-> new ShadowWalkerArmorItem(ModArmorMaterials.SHADOW, ArmorItem.Type.BOOTS, new Item.Properties()));
 

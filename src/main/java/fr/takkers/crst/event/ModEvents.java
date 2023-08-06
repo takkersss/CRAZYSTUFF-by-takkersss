@@ -10,6 +10,7 @@ import fr.takkers.crst.villager.ModVillagers;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
@@ -133,6 +134,26 @@ public class ModEvents {
                     */
         }
     }
+
+    /*
+    public static void spawnGlowstoneParticles(Player p) {
+        BlockPos blockPos = p.getOnPos();
+
+        double max = 0.2d;
+        double min = 0.05d;
+        double range = max - min + 0.1;
+        double diameter = (Math.random() * range) + min;
+        System.out.println("\u001B[34m" + diameter + "\u001B[0m" );
+
+        for(int i = 0; i < 360; i++) {
+            if(i % 20 == 0) {
+                p.level().addParticle(ModParticles.GLOWSTONE_PARTICLES.get(),
+                        blockPos.getX() + 0.5d, blockPos.getY() + 1, blockPos.getZ() + 0.5d,
+                        Math.cos(i) * diameter, 0.10d, Math.sin(i) * diameter);
+            }
+        }
+    }
+     */
 
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {

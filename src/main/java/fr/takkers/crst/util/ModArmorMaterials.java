@@ -34,6 +34,14 @@ public enum ModArmorMaterials implements ArmorMaterial {
         p_266655_.put(ArmorItem.Type.HELMET, 2);
     }), 14, SoundEvents.ARMOR_EQUIP_NETHERITE, 1.8F, 0.3F, () -> {
         return Ingredient.of(ModItems.SHADOWWALKER_SCALES.get());
+    }),
+    PWD_SHADOW("pwd_shadow", 70, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
+        p_266655_.put(ArmorItem.Type.BOOTS, 2);
+        p_266655_.put(ArmorItem.Type.LEGGINGS, 6);
+        p_266655_.put(ArmorItem.Type.CHESTPLATE, 12);
+        p_266655_.put(ArmorItem.Type.HELMET, 2);
+    }), 14, SoundEvents.ARMOR_EQUIP_GOLD, 2.5F, 0.3F, () -> {
+        return Ingredient.of(ModItems.SHADOWWALKER_SCALES.get());
     });
 
  /*

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "crst:shadowwalker_chestplate"
+    },
+    {
+      "item": "crst:artefact_ball"
+    }
+  ],
+  "result": {
+    "item": "crst:pwd_shadowwalker_chestplate"
+  }
+}
