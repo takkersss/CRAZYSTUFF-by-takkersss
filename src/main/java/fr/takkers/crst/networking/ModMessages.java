@@ -2,6 +2,7 @@ package fr.takkers.crst.networking;
 
 import fr.takkers.crst.CRST;
 import fr.takkers.crst.networking.packets.ItemStackSyncS2CPacket;
+import fr.takkers.crst.networking.packets.WardenEffectPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -31,6 +32,12 @@ public class ModMessages {
                 .decoder(ItemStackSyncS2CPacket::new)
                 .encoder(ItemStackSyncS2CPacket::toBytes)
                 .consumerMainThread(ItemStackSyncS2CPacket::handle)
+                .add();
+
+        net.messageBuilder(WardenEffectPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(WardenEffectPacket::new)
+                .encoder(WardenEffectPacket::toBytes)
+                .consumerMainThread(WardenEffectPacket::handle)
                 .add();
     }
 

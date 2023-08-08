@@ -4,6 +4,8 @@ import fr.takkers.crst.CRST;
 import fr.takkers.crst.effect.ModEffects;
 import fr.takkers.crst.enchantment.ModEnchantments;
 import fr.takkers.crst.item.ModItems;
+import fr.takkers.crst.networking.ModMessages;
+import fr.takkers.crst.networking.packets.WardenEffectPacket;
 import fr.takkers.crst.particle.ModParticles;
 import fr.takkers.crst.sound.ModSounds;
 import fr.takkers.crst.villager.ModVillagers;
@@ -12,18 +14,28 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.Mth;
+import net.minecraft.util.Unit;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.behavior.warden.SonicBoom;
+import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Shulker;
+import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ShulkerBullet;
@@ -37,6 +49,7 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.NoteBlockEvent;
@@ -92,13 +105,41 @@ public class ModEvents {
     }
 
     @SubscribeEvent
+    public static void onRightClickedArmorEntity(PlayerInteractEvent.EntityInteract event) {
+        Player player = event.getEntity();
+        ItemStack armorChestplate = player.getItemBySlot(EquipmentSlot.CHEST);
+        if(player.level().isClientSide()){
+            if(armorChestplate.getItem() != PWD_SHADOWWALKER_CHESTPLATE.get() && player.getMainHandItem().isEmpty()){
+                return;
+            }else{
+                if(event.getHand() == InteractionHand.MAIN_HAND){
+                    ModMessages.sendToServer(new WardenEffectPacket());
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onRightClickedArmorHand(PlayerInteractEvent.RightClickEmpty event) {
+        Player player = event.getEntity();
+        ItemStack armorChestplate = player.getItemBySlot(EquipmentSlot.CHEST);
+        if(armorChestplate.getItem() != PWD_SHADOWWALKER_CHESTPLATE.get()){
+            return;
+        }else{
+            if(event.getHand() == InteractionHand.MAIN_HAND){
+                ModMessages.sendToServer(new WardenEffectPacket());
+            }
+        }
+    }
+
+    @SubscribeEvent
     public static void onRightClickedLevitationWand(PlayerInteractEvent.RightClickItem event) {
         Player player = event.getEntity();
         Level level = event.getLevel();
         Item mainHandItem = player.getMainHandItem().getItem();
         Item leftHandItem = player.getOffhandItem().getItem();
 
-        if(!event.getLevel().isClientSide()){
+        if(!level.isClientSide()){
                 if((mainHandItem == ModItems.LEVITATION_WAND.get() || leftHandItem == ModItems.LEVITATION_WAND.get())&& player.isCrouching() && !player.hasEffect(ModEffects.CROUCH_TELEPORTATION_EFFECT.get())){
 
                     // LEVITATION
