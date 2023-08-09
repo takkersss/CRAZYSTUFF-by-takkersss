@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "K"
+  ],
+  "key": {
+    "#": {
+      "item": "crst:strange_part_two"
+    },
+    "K": {
+      "item": "crst:strange_part_one"
+    }
+  },
+  "result": {
+    "item": "crst:klng_gnomon"
+  }
+}

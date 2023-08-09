@@ -9,7 +9,7 @@
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "crst:center_stone",
+  "parent": "crst:stranges_parts",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",

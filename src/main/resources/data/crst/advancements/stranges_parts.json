@@ -1,0 +1,46 @@
+{
+  "display": {
+    "icon": {
+      "item": "crst:strange_part_one"
+    },
+    "title": "The Gnomon Quest",
+    "description": "Where's the other part ?",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "requirements": [
+    [
+      "part1",
+      "part2"
+    ]
+  ],
+  "sends_telemetry_event": true,
+  "parent": "crst:center_stone",
+  "criteria": {
+    "part1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "crst:strange_part_one"
+            ]
+          }
+        ]
+      }
+    },
+    "part2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "crst:strange_part_two"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

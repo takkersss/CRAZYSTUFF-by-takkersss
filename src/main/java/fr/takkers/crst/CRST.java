@@ -148,6 +148,8 @@ public class CRST {
             event.accept(ModBlocks.CHRISTMAS_BALL);
 
             // ARTEFACT
+            event.accept(ModItems.STRANGE_PART_ONE);
+            event.accept(ModItems.STRANGE_PART_TWO);
             event.accept(ModBlocks.KLNG_GNOMON);
             event.accept(ModItems.PWD_KLNG_GNOMON_ITEM);
             event.accept(ModItems.ARTEFACT_BALL);
