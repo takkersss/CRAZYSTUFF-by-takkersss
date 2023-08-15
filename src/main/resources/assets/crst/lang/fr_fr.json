@@ -45,12 +45,14 @@
   "item.crst.artefact_ball": "Artefact Sphérique",
   "item.crst.strange_part_one": "Morceau Étrange N°1",
   "item.crst.strange_part_two": "Morceau Étrange N°2",
+  "tooltip.crst.stranges_parts": "Obtenable dans les villages du désert",
 
   "item.crst.shadowwalker_helmet": "Casque En Ecailles De l'Ombre",
   "item.crst.shadowwalker_chestplate": "Plastron En Ecailles De l'Ombre",
   "item.crst.shadowwalker_leggings": "Pantalon En Ecailles De l'Ombre",
   "item.crst.shadowwalker_boots": "Bottes En Ecailles De l'Ombre",
   "tooltip.crst.shadowwalker_armor": "Résistante aux explosions",
+  "tooltip.crst.pwd_shadowwalker_armor": "Clic Droit avec la main vide sur les monstres",
   "item.crst.pwd_shadowwalker_chestplate": "Plastron Energisé En Ecailles De l'Ombre",
 
   "painting.crst.bohemian_grove1.title": "Bohemian Grove Ritual",

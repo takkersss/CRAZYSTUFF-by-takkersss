@@ -45,12 +45,14 @@
   "item.crst.artefact_ball": "Artefact Ball",
   "item.crst.strange_part_one": "Strange Part N°1",
   "item.crst.strange_part_two": "Strange Part N°2",
+  "tooltip.crst.stranges_parts": "Obtainable in desert villages",
 
   "item.crst.shadowwalker_helmet": "Shadow Scales Helmet",
   "item.crst.shadowwalker_chestplate": "Shadow Scales Chestplate",
   "item.crst.shadowwalker_leggings": "Shadow Scales Leggings",
   "item.crst.shadowwalker_boots": "Shadow Scales Boots",
   "tooltip.crst.shadowwalker_armor": "Blast resistance",
+  "tooltip.crst.pwd_shadowwalker_armor": "Right Click with empty hand on monsters",
   "item.crst.pwd_shadowwalker_chestplate": "Powered Shadow Scales Chestplate",
 
   "painting.crst.bohemian_grove1.title": "Bohemian Grove Ritual",

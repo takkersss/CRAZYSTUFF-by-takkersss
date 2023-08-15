@@ -7,15 +7,22 @@ import fr.takkers.crst.item.custom.*;
 import fr.takkers.crst.util.ModArmorMaterials;
 import fr.takkers.crst.util.ModCreativeTab;
 import fr.takkers.crst.util.ModMaterialTiers;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.particle.TotemParticle;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.GlazedTerracottaBlock;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, CRST.MODID);
@@ -43,8 +50,29 @@ public class ModItems {
     public static final RegistryObject<Item> SHADOWWALKER_SCALES = ITEMS.register("shadowwalker_scales", ()-> new Item(new Item.Properties()));
     public static final RegistryObject<Item> PWD_KLNG_GNOMON_ITEM = ITEMS.register("pwd_klng_gnomon", ()-> new PwdKLNGGnomonItem(ModBlocks.PWD_KLNG_GNOMON.get(), new Item.Properties())); // same name as the block (BlockItem here)
     public static final RegistryObject<Item> ARTEFACT_BALL = ITEMS.register("artefact_ball", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> STRANGE_PART_ONE = ITEMS.register("strange_part_one", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> STRANGE_PART_TWO = ITEMS.register("strange_part_two", () -> new Item(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> STRANGE_PART_ONE = ITEMS.register("strange_part_one", () -> new Item(new Item.Properties().stacksTo(1)) {
+        @Override
+        public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> tooltip, TooltipFlag pIsAdvanced) {
+            if(Screen.hasShiftDown()){
+                tooltip.add(Component.translatable("tooltip.crst.stranges_parts").withStyle(ChatFormatting.AQUA));
+            }else {
+                tooltip.add(Component.translatable("tooltip.crst.shift").withStyle(ChatFormatting.YELLOW));
+            }
+            super.appendHoverText(pStack, pLevel, tooltip, pIsAdvanced);
+        }
+    });
+    public static final RegistryObject<Item> STRANGE_PART_TWO = ITEMS.register("strange_part_two", () -> new Item(new Item.Properties().stacksTo(1)) {
+        @Override
+        public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> tooltip, TooltipFlag pIsAdvanced) {
+            if(Screen.hasShiftDown()){
+                tooltip.add(Component.translatable("tooltip.crst.stranges_parts").withStyle(ChatFormatting.AQUA));
+            }else {
+                tooltip.add(Component.translatable("tooltip.crst.shift").withStyle(ChatFormatting.YELLOW));
+            }
+            super.appendHoverText(pStack, pLevel, tooltip, pIsAdvanced);
+        }
+    });
 
 
     public static final RegistryObject<Item> SHADOWWALKER_HELMET = ITEMS.register("shadowwalker_helmet", ()-> new ShadowWalkerArmorItem(ModArmorMaterials.SHADOW, ArmorItem.Type.HELMET, new Item.Properties()));

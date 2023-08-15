@@ -109,10 +109,10 @@ public class ModEvents {
         Player player = event.getEntity();
         ItemStack armorChestplate = player.getItemBySlot(EquipmentSlot.CHEST);
         if(player.level().isClientSide()){
-            if(armorChestplate.getItem() != PWD_SHADOWWALKER_CHESTPLATE.get() && player.getMainHandItem().isEmpty()){
+            if(armorChestplate.getItem() != PWD_SHADOWWALKER_CHESTPLATE.get()){
                 return;
             }else{
-                if(event.getHand() == InteractionHand.MAIN_HAND){
+                if(event.getHand() == InteractionHand.MAIN_HAND && player.getMainHandItem().isEmpty()){
                     ModMessages.sendToServer(new WardenEffectPacket());
                 }
             }

@@ -3,6 +3,7 @@ package fr.takkers.crst.item.custom;
 import fr.takkers.crst.entity.client.armor.PwdShadowWalkerArmorRenderer;
 import fr.takkers.crst.entity.client.armor.ShadowWalkerArmorRenderer;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -68,6 +69,11 @@ public class PwdShadowWalkerArmorItem extends ArmorItem implements GeoItem {
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> tooltip, TooltipFlag pIsAdvanced) {
         tooltip.add(Component.translatable("tooltip.crst.shadowwalker_armor").withStyle(ChatFormatting.AQUA));
+        if(Screen.hasShiftDown()){
+            tooltip.add(Component.translatable("tooltip.crst.pwd_shadowwalker_armor").withStyle(ChatFormatting.AQUA));
+        }else {
+            tooltip.add(Component.translatable("tooltip.crst.shift").withStyle(ChatFormatting.YELLOW));
+        }
         super.appendHoverText(pStack, pLevel, tooltip, pIsAdvanced);
     }
 }
