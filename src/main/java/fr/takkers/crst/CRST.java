@@ -1,11 +1,12 @@
 package fr.takkers.crst;
 
+import com.mojang.logging.LogUtils;
 import fr.takkers.crst.block.ModBlocks;
 import fr.takkers.crst.block.entity.ModBlockEntities;
 import fr.takkers.crst.effect.ModEffects;
+import fr.takkers.crst.enchantment.ModEnchantments;
 import fr.takkers.crst.entity.ModEntityTypes;
 import fr.takkers.crst.entity.client.ShadowWalkerRenderer;
-import fr.takkers.crst.enchantment.ModEnchantments;
 import fr.takkers.crst.event.loot.ModLootModifiers;
 import fr.takkers.crst.item.ModItems;
 import fr.takkers.crst.networking.ModMessages;
@@ -19,36 +20,28 @@ import fr.takkers.crst.sound.ModSounds;
 import fr.takkers.crst.util.ModCreativeTab;
 import fr.takkers.crst.villager.ModVillagers;
 import fr.takkers.crst.world.biomemods.ModBiomeModifiers;
-import fr.takkers.crst.world.feature.ModPlacedFeatures;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.entity.monster.Skeleton;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
+
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(CRST.MODID)
 public class CRST {
     public static final String MODID = "crst";
-
     // Directly reference a log4j logger.
-    public static final Logger LOGGER = LogManager.getLogger(MODID);
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     // Add a comment
     public CRST() {
@@ -71,42 +64,30 @@ public class CRST {
         ModLootModifiers.register(eventBus);
 
         eventBus.addListener(this::setup);
-        eventBus.addListener(this::clientSetup);
-        eventBus.addListener(this::addCreative);
 
         GeckoLib.initialize();
 
-
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    private void clientSetup(final FMLClientSetupEvent event) {
-        EntityRenderers.register(ModEntityTypes.SHADOW_WALKER.get(), ShadowWalkerRenderer::new);
-        /*ItemBlockRenderTypes.setRenderLayer(ModBlocks.ARTEFACT_EXTRACTOR.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.DENSE_VEGETATION.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHRISTMAS_BALL.get(), RenderType.translucent());*/
-
-        MenuScreens.register(ModMenuTypes.ARTEFACT_EXTRACTOR_MENU.get(), ArtefactExtractorScreen::new);
-        MenuScreens.register(ModMenuTypes.ECONOMY_CONTROL_OFFICE_MENU.get(), EconomyControlOfficeScreen::new);
-
+        eventBus.addListener(this::addCreative);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            //SpawnPlacements.register(EntityType.WITHER_SKELETON,
-
-            /*SpawnPlacements.register(ModEntityTypes.SHADOW_WALKER.get(),
+        //SpawnPlacements.register(EntityType.WITHER_SKELETON,
+        /*SpawnPlacements.register(ModEntityTypes.SHADOW_WALKER.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Skeleton::checkMonsterSpawnRules);*/
-
-
-            //ModVillagers.registerPOIs();
-            ModMessages.register();
-        });
+        //ModVillagers.registerPOIs();
+        event.enqueueWork(ModMessages::register);
 
         //event.enqueueWork((ModMessages::register));
+    }
+
+    // You can use SubscribeEvent and let the Event Bus discover methods to call
+    @SubscribeEvent
+    public void onServerStarting(ServerStartingEvent event) {
+
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
@@ -156,6 +137,17 @@ public class CRST {
             event.accept(ModBlocks.SHADOWWALKER_HEAD);
             event.accept(ModItems.TRIANGULAR_ARTEFACT);
             event.accept(ModItems.UNUSUAL_TOTEM);
+        }
+    }
+
+    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    public static class ClientModEvents {
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event) {
+            EntityRenderers.register(ModEntityTypes.SHADOW_WALKER.get(), ShadowWalkerRenderer::new);
+
+            MenuScreens.register(ModMenuTypes.ARTEFACT_EXTRACTOR_MENU.get(), ArtefactExtractorScreen::new);
+            MenuScreens.register(ModMenuTypes.ECONOMY_CONTROL_OFFICE_MENU.get(), EconomyControlOfficeScreen::new);
         }
     }
 

@@ -3,6 +3,8 @@ package fr.takkers.crst.util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -24,27 +26,28 @@ import java.util.function.Predicate;
 public class ModRayTrace implements BlockGetter {
     private static Predicate<Entity> isVisible =
             entity -> !entity.isSpectator() && entity.isPickable();
-    private static Minecraft minecraft = Minecraft.getInstance();
+    private ServerLevel minecraft;
 
     @Override
     public BlockEntity getBlockEntity(BlockPos pos) {
-        return minecraft.level.getBlockEntity(pos);
+        return minecraft.getBlockEntity(pos);
     }
 
     @Override
     public BlockState getBlockState(BlockPos pos) {
-        return minecraft.level.getBlockState(pos);
+        return minecraft.getBlockState(pos);
     }
 
     @Override
     public FluidState getFluidState(BlockPos pos) {
-        return minecraft.level.getFluidState(pos);
+        return minecraft.getFluidState(pos);
     }
 
-    public LivingEntity getEntityInCrosshair(double reachDistance, Player viewer) {
+    public LivingEntity getEntityInCrosshair(double reachDistance, ServerPlayer viewer, ServerLevel level) {
         if (viewer == null) {
             return null;
         }
+        minecraft = level;
 
         Vec3 position = viewer.getEyePosition();
         Vec3 look = viewer.getViewVector(1.0F);

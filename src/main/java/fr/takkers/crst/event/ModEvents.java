@@ -8,6 +8,7 @@ import fr.takkers.crst.networking.ModMessages;
 import fr.takkers.crst.networking.packets.WardenEffectPacket;
 import fr.takkers.crst.particle.ModParticles;
 import fr.takkers.crst.sound.ModSounds;
+import fr.takkers.crst.util.ModRayTrace;
 import fr.takkers.crst.villager.ModVillagers;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.client.Minecraft;
@@ -15,6 +16,7 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
@@ -83,13 +85,13 @@ public class ModEvents {
         }
     }
 
-    @SubscribeEvent
+    @SubscribeEvent // Méthode côté client
     public static void onRightClickedTotem(PlayerInteractEvent.RightClickItem event) {
         Player player = event.getEntity();
 
-
-        if(player.getMainHandItem().getItem() == ModItems.UNUSUAL_TOTEM.get()){
-            if (!player.hasEffect(ModEffects.CROUCH_TELEPORTATION_EFFECT.get())){
+        if(event.getLevel().isClientSide()){
+            if(player.getMainHandItem().getItem() == ModItems.UNUSUAL_TOTEM.get()){
+                if (!player.hasEffect(ModEffects.CROUCH_TELEPORTATION_EFFECT.get())){
 
                     Minecraft.getInstance().gameRenderer.displayItemActivation(new ItemStack(ModItems.UNUSUAL_TOTEM.get(), 1));
                     Minecraft.getInstance().particleEngine.createTrackingEmitter(player, ModParticles.UNUSUAL_TOTEM_PARTICLES.get(), 30);
@@ -97,37 +99,70 @@ public class ModEvents {
                     player.playSound(ModSounds.USED_UNUSUAL_TOTEM.get(), 0.5F, 1.0F);
                     player.addEffect(new MobEffectInstance(ModEffects.CROUCH_TELEPORTATION_EFFECT.get(), 10000, 0));
                     player.getMainHandItem().shrink(1);
-
-            }
-
-        }
-
-    }
-
-    @SubscribeEvent
-    public static void onRightClickedArmorEntity(PlayerInteractEvent.EntityInteract event) {
-        Player player = event.getEntity();
-        ItemStack armorChestplate = player.getItemBySlot(EquipmentSlot.CHEST);
-        if(player.level().isClientSide()){
-            if(armorChestplate.getItem() != PWD_SHADOWWALKER_CHESTPLATE.get()){
-                return;
-            }else{
-                if(event.getHand() == InteractionHand.MAIN_HAND && player.getMainHandItem().isEmpty()){
-                    ModMessages.sendToServer(new WardenEffectPacket());
                 }
             }
         }
     }
 
-    @SubscribeEvent
-    public static void onRightClickedArmorHand(PlayerInteractEvent.RightClickEmpty event) {
+    @SubscribeEvent // Méthode BOTH SIDE
+    public static void onRightClickedArmorEntity(PlayerInteractEvent.EntityInteract event) {
+        if(!(event.getEntity() instanceof Player)) return;
         Player player = event.getEntity();
         ItemStack armorChestplate = player.getItemBySlot(EquipmentSlot.CHEST);
-        if(armorChestplate.getItem() != PWD_SHADOWWALKER_CHESTPLATE.get()){
-            return;
-        }else{
-            if(event.getHand() == InteractionHand.MAIN_HAND){
-                ModMessages.sendToServer(new WardenEffectPacket());
+        if(!event.getLevel().isClientSide()){
+            if(armorChestplate.getItem() != PWD_SHADOWWALKER_CHESTPLATE.get()){
+                return;
+            }else{
+                ServerPlayer sPlayer = (ServerPlayer) player;
+
+                if(event.getHand() == InteractionHand.MAIN_HAND && sPlayer.getMainHandItem().isEmpty()){
+                    ServerLevel level = (ServerLevel) event.getLevel();
+
+                    ModRayTrace rayTrace = new ModRayTrace();
+                    LivingEntity rayTraceResult = rayTrace.getEntityInCrosshair(15, sPlayer, level);
+                    Mob mob = (Mob)rayTraceResult;
+
+                    if(rayTraceResult != null){
+                        Vec3 vec3 = sPlayer.position().add(0.0D, (double)1.6F, 0.0D);
+                        Vec3 vec31 = mob.getEyePosition().subtract(vec3);
+                        Vec3 vec32 = vec31.normalize();
+
+                        // Particles
+                        for(int i = 1; i < Mth.floor(vec31.length()) + 7; ++i) {
+                            Vec3 vec33 = vec3.add(vec32.scale((double)i));
+                            level.sendParticles(ParticleTypes.SONIC_BOOM, vec33.x, vec33.y, vec33.z, 1, 0.0D, 0.0D, 0.0D, 0.0D);
+                        }
+
+                        sPlayer.playSound(SoundEvents.WARDEN_SONIC_BOOM, 3.0F, 1.0F);
+
+                        // Fracasser et pousser le mob
+                        mob.hurt(level.damageSources().sonicBoom(sPlayer), 5.0F);
+                        double d1 = 0.5D * (1.0D - mob.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
+                        double d0 = 2.5D * (1.0D - mob.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
+                        mob.push(vec32.x() * d0, vec32.y() * d1, vec32.z() * d0);
+
+                        // Endommager et casser l'item
+                        player.getItemBySlot(EquipmentSlot.CHEST).hurtAndBreak(1, sPlayer, (p_150845_) -> {
+                            p_150845_.broadcastBreakEvent(player.getItemBySlot(EquipmentSlot.CHEST).getEquipmentSlot());
+                        });
+                    }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent // Client side
+    public static void onRightClickedArmorHand(PlayerInteractEvent.RightClickEmpty event) {
+        if(!(event.getEntity() instanceof Player)) return;
+        Player player = event.getEntity();
+        ItemStack armorChestplate = player.getItemBySlot(EquipmentSlot.CHEST);
+        if(event.getLevel().isClientSide()){
+            if(armorChestplate.getItem() != PWD_SHADOWWALKER_CHESTPLATE.get()){
+                return;
+            }else{
+                if(event.getHand() == InteractionHand.MAIN_HAND){
+                    ModMessages.sendToServer(new WardenEffectPacket());
+                }
             }
         }
     }
@@ -198,7 +233,7 @@ public class ModEvents {
 
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {
-        if (event.getEntity() instanceof Player player) { // Fonctionne que sur les joueurs
+        if (event.getEntity() instanceof Player player && !player.level().isClientSide()) { // Fonctionne que sur les joueurs
 
             // Récupère les emplacements d'armure
             ItemStack armorHelmet = player.getItemBySlot(EquipmentSlot.HEAD);

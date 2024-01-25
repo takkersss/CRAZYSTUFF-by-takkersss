@@ -47,9 +47,10 @@ public class WardenEffectPacket {
             ServerLevel level = player.serverLevel();
 
             ModRayTrace rayTrace = new ModRayTrace();
-            Mob mob = (Mob)rayTrace.getEntityInCrosshair(15, player);
+            LivingEntity rayTraceResult = rayTrace.getEntityInCrosshair(15, player, level);
+            Mob mob = (Mob)rayTraceResult;
 
-            if(rayTrace.getEntityInCrosshair(15, player) != null){
+            if(rayTraceResult != null){
                 Vec3 vec3 = player.position().add(0.0D, (double)1.6F, 0.0D);
                 Vec3 vec31 = mob.getEyePosition().subtract(vec3);
                 Vec3 vec32 = vec31.normalize();

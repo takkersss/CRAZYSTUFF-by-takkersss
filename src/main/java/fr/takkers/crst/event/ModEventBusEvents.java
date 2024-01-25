@@ -32,15 +32,6 @@ public class ModEventBusEvents {
         });
     }
 
-
-    @SubscribeEvent
-    public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
-        Minecraft.getInstance().particleEngine.register(ModParticles.GLOWSTONE_PARTICLES.get(),
-                GlowstoneParticles.Provider::new);
-        Minecraft.getInstance().particleEngine.register(ModParticles.UNUSUAL_TOTEM_PARTICLES.get(),
-                UnusualTotemParticles.Provider::new);
-    }
-
     @SubscribeEvent
     public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
         event.put(ModEntityTypes.SHADOW_WALKER.get(), ShadowWalkerEntity.setAttributes());

@@ -39,8 +39,8 @@ public class RedWand extends Item {
                 if (player.getMainHandItem().getItem() == ModItems.RED_WAND.get() && event.getHand() == InteractionHand.MAIN_HAND) {
                     level.setBlockAndUpdate(playerPosDown, Blocks.RED_STAINED_GLASS.defaultBlockState());
 
-                    System.out.println("\u001B[34m" + "playerposDown = " + playerPosDown + "\u001B[0m");
-                    System.out.println("\u001B[34m" + "playerpos = " + playerPos + "\u001B[0m");
+                    //System.out.println("\u001B[34m" + "playerposDown = " + playerPosDown + "\u001B[0m");
+
                     if (!player.isCreative()) {
                     player.getMainHandItem().hurtAndBreak(1, player, (p_150845_) -> {
                     p_150845_.broadcastBreakEvent(event.getHand());

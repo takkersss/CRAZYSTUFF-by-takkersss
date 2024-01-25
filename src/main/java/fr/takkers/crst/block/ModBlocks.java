@@ -3,7 +3,7 @@ package fr.takkers.crst.block;
 import fr.takkers.crst.CRST;
 import fr.takkers.crst.block.custom.*;
 import fr.takkers.crst.item.ModItems;
-import fr.takkers.crst.util.ModCreativeTab;
+
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
