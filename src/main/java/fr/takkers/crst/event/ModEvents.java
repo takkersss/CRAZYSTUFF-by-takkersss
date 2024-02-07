@@ -1,6 +1,8 @@
 package fr.takkers.crst.event;
 
+import com.google.common.collect.ImmutableMap;
 import fr.takkers.crst.CRST;
+import fr.takkers.crst.block.ModBlocks;
 import fr.takkers.crst.effect.ModEffects;
 import fr.takkers.crst.enchantment.ModEnchantments;
 import fr.takkers.crst.item.ModItems;
@@ -18,6 +20,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
@@ -41,17 +44,21 @@ import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ShulkerBullet;
-import net.minecraft.world.item.EnchantedBookItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DragonEggBlock;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.client.event.InputEvent;
+import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.NoteBlockEvent;
@@ -60,6 +67,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
+import java.util.Map;
 
 import static fr.takkers.crst.item.ModItems.*;
 
@@ -96,7 +104,7 @@ public class ModEvents {
                     Minecraft.getInstance().gameRenderer.displayItemActivation(new ItemStack(ModItems.UNUSUAL_TOTEM.get(), 1));
                     Minecraft.getInstance().particleEngine.createTrackingEmitter(player, ModParticles.UNUSUAL_TOTEM_PARTICLES.get(), 30);
                     //player.getLevel().playLocalSound(player.getX(), player.getY(), player.getZ(), ModSounds.USED_UNUSUAL_TOTEM.get(), player.getSoundSource(), 0.5F, 1.0F, false);
-                    player.playSound(ModSounds.USED_UNUSUAL_TOTEM.get(), 0.5F, 1.0F);
+                    player.playSound(ModSounds.USED_UNUSUAL_TOTEM.get(), 0.4F, 1.0F);
                     player.addEffect(new MobEffectInstance(ModEffects.CROUCH_TELEPORTATION_EFFECT.get(), 10000, 0));
                     player.getMainHandItem().shrink(1);
                 }
@@ -133,7 +141,7 @@ public class ModEvents {
                             level.sendParticles(ParticleTypes.SONIC_BOOM, vec33.x, vec33.y, vec33.z, 1, 0.0D, 0.0D, 0.0D, 0.0D);
                         }
 
-                        sPlayer.playSound(SoundEvents.WARDEN_SONIC_BOOM, 3.0F, 1.0F);
+                        level.playSound(null, sPlayer.getOnPos(), SoundEvents.WARDEN_SONIC_BOOM, SoundSource.PLAYERS, 0.7F, 1.0F);
 
                         // Fracasser et pousser le mob
                         mob.hurt(level.damageSources().sonicBoom(sPlayer), 5.0F);
@@ -261,5 +269,4 @@ public class ModEvents {
             }
         }
     }
-
 }

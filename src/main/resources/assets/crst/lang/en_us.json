@@ -46,6 +46,8 @@
   "item.crst.strange_part_one": "Strange Part N°1",
   "item.crst.strange_part_two": "Strange Part N°2",
   "tooltip.crst.stranges_parts": "Obtainable in desert villages",
+  "item.crst.orbital_sander": "Orbital Sander",
+  "tooltip.crst.orbital_sander": "You can polish and unpolish blocks like diorite, logs... You can switch the mode with sneak + right-click",
 
   "item.crst.shadowwalker_helmet": "Shadow Scales Helmet",
   "item.crst.shadowwalker_chestplate": "Shadow Scales Chestplate",

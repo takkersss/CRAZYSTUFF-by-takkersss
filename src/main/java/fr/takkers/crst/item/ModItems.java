@@ -73,6 +73,7 @@ public class ModItems {
             super.appendHoverText(pStack, pLevel, tooltip, pIsAdvanced);
         }
     });
+    public static final RegistryObject<Item> ORBITAL_SANDER = ITEMS.register("orbital_sander", ()-> new OrbitalSander(new Item.Properties().stacksTo(1)));
 
 
     public static final RegistryObject<Item> SHADOWWALKER_HELMET = ITEMS.register("shadowwalker_helmet", ()-> new ShadowWalkerArmorItem(ModArmorMaterials.SHADOW, ArmorItem.Type.HELMET, new Item.Properties()));

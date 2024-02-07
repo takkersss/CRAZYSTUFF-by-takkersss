@@ -7,6 +7,8 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -59,6 +61,7 @@ public class KLNGGnomon extends HorizontalDirectionalBlock {
                     level.setBlockAndUpdate(blockPos.below(), Blocks.BLUE_CONCRETE_POWDER.defaultBlockState());
                     Direction d = blockState.getValue(FACING);
                     level.setBlockAndUpdate(blockPos, ModBlocks.PWD_KLNG_GNOMON.get().defaultBlockState().setValue(FACING, d.getOpposite()));
+                    level.playSound(null, blockPos, SoundEvents.AMETHYST_CLUSTER_HIT, SoundSource.BLOCKS, 1f, 1f);
                 }
             }
         }

@@ -15,6 +15,9 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import software.bernie.geckolib.util.RenderUtils;
 
 public class PwdKLNGGnomonEntity extends BlockEntity implements GeoBlockEntity {
+    private boolean isWheelFinished;
+    RawAnimation headWheel = RawAnimation.begin().then("wheeling", Animation.LoopType.PLAY_ONCE);
+
     public PwdKLNGGnomonEntity(BlockPos p_155229_, BlockState p_155230_) {
         super(ModBlockEntities.PWD_KLNG_GNOMON_BLOCK_ENTITY.get(), p_155229_, p_155230_);
     }
@@ -27,9 +30,20 @@ public class PwdKLNGGnomonEntity extends BlockEntity implements GeoBlockEntity {
     }
 
     private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
-        tAnimationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
+        if (tAnimationState.isCurrentAnimation(headWheel)) {
+            if (tAnimationState.getController().hasAnimationFinished()) {
+                isWheelFinished = true;
+                tAnimationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
+            }
+        } else if(!isWheelFinished){
+            tAnimationState.getController().setAnimation(headWheel);
+        }
         return PlayState.CONTINUE;
     }
+
+    /*public void playWheelAnim(){
+        triggerAnim("controller", "wheeling");
+    }*/
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {

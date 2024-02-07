@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "GKG",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_block"
+    },
+    "K": {
+      "item": "crst:center_stone_bar"
+    },
+    "X": {
+      "item": "crst:triangular_artefact"
+    },
+    "G": {
+      "item": "crst:shadowwalker_scales"
+    }
+  },
+  "result": {
+    "item": "crst:orbital_sander"
+  }
+}

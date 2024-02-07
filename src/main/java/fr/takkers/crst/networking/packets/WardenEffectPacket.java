@@ -6,6 +6,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -55,13 +56,13 @@ public class WardenEffectPacket {
                 Vec3 vec31 = mob.getEyePosition().subtract(vec3);
                 Vec3 vec32 = vec31.normalize();
 
-                // Partciles
+                // Particles
                 for(int i = 1; i < Mth.floor(vec31.length()) + 7; ++i) {
                     Vec3 vec33 = vec3.add(vec32.scale((double)i));
                     level.sendParticles(ParticleTypes.SONIC_BOOM, vec33.x, vec33.y, vec33.z, 1, 0.0D, 0.0D, 0.0D, 0.0D);
                 }
 
-                player.playSound(SoundEvents.WARDEN_SONIC_BOOM, 3.0F, 1.0F);
+                level.playSound(null, player.getOnPos(),SoundEvents.WARDEN_SONIC_BOOM, SoundSource.PLAYERS, 0.7F, 1.0F);
 
                 // Fracasser et pousser le mob
                 mob.hurt(level.damageSources().sonicBoom(player), 5.0F);

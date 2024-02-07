@@ -102,6 +102,7 @@ public class CRST {
 
             event.accept(ModItems.RED_WAND);
             event.accept(ModItems.LEVITATION_WAND);
+            event.accept(ModItems.ORBITAL_SANDER);
             event.accept(ModItems.SNOW_SHOES);
 
             // SHADOW WALKER
