@@ -12,6 +12,7 @@ CRST is quite complete. It includes advancements and tooltips to help you unders
 # Project pages
 
 - CurseForge https://www.curseforge.com/minecraft/mc-mods/crazy-stuff-crst
+- Modrinth https://modrinth.com/mod/crazy-stuff-crst
 
 # Dependencies
 
