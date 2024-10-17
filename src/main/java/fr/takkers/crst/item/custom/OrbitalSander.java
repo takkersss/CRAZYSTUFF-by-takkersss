@@ -170,20 +170,18 @@ public class OrbitalSander extends Item implements GeoItem {
     public InteractionResultHolder<ItemStack> use(Level l, Player p, InteractionHand hand) {
         ItemStack stack = p.getItemInHand(hand);
         if(!l.isClientSide()){
-            if(p.isCrouching()){
-                boolean isPolishMode;
-                if(stack.getTag() == null) {
-                    isPolishMode = true;
-                    setPolishMode(stack, false);
-                }else{
-                    isPolishMode = stack.getTag().getBoolean("isPolishMode");
-                    setPolishMode(stack, !isPolishMode);
-                }
-
-                if(!isPolishMode){
-                    p.sendSystemMessage(Component.literal("Sander sets to POLISH mode."));
-                }else p.sendSystemMessage(Component.literal("Sander sets to UNpolish mode."));
+            boolean isPolishMode;
+            if(stack.getTag() == null) {
+                isPolishMode = true;
+                setPolishMode(stack, false);
+            }else{
+                isPolishMode = stack.getTag().getBoolean("isPolishMode");
+                setPolishMode(stack, !isPolishMode);
             }
+
+            if(!isPolishMode){
+                p.sendSystemMessage(Component.literal("Sander sets to POLISH mode."));
+            }else p.sendSystemMessage(Component.literal("Sander sets to UNpolish mode."));
         }
         return super.use(l,p,hand);
     }
