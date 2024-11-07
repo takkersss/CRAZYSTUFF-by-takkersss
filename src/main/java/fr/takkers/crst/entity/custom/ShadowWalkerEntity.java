@@ -58,13 +58,13 @@ public class ShadowWalkerEntity extends Monster implements GeoEntity {
 
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 50.0D)
+                .add(Attributes.MAX_HEALTH, 32.0D)
                 .add(Attributes.ATTACK_DAMAGE, 4.0f)
                 .add(Attributes.ATTACK_SPEED, 2.0f)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1)
                 .add(Attributes.ATTACK_KNOCKBACK, 1)
                 .add(Attributes.ARMOR_TOUGHNESS, 1)
-                .add(Attributes.MOVEMENT_SPEED, 0.35f).build();
+                .add(Attributes.MOVEMENT_SPEED, 0.3f).build();
     }
 
     private PlayState predicate(AnimationState animationState) {
@@ -133,7 +133,7 @@ public class ShadowWalkerEntity extends Monster implements GeoEntity {
                 }
             }
         }else if(entity instanceof Player){
-            this.spawnAtLocation(new ItemStack(ModItems.SHADOWWALKER_SCALES.get(), random.nextInt(1,3)));
+            this.spawnAtLocation(new ItemStack(ModItems.SHADOWWALKER_SCALES.get(), random.nextInt(1,4)));
         }
 
     }
@@ -143,7 +143,7 @@ public class ShadowWalkerEntity extends Monster implements GeoEntity {
     }
 
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(SoundEvents.SKELETON_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.WOOL_STEP, 0.15F, 0.8F);
     }
 
     protected SoundEvent getAmbientSound() {
@@ -155,7 +155,7 @@ public class ShadowWalkerEntity extends Monster implements GeoEntity {
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.IRON_GOLEM_DEATH;
+        return SoundEvents.ILLUSIONER_DEATH;
     }
 
     protected float getSoundVolume() {
